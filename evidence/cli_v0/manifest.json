@@ -1,11 +1,11 @@
 {
   "schema": "isyco-evidence-pack-v1",
-  "created_at": "2026-11-06T13:06:27Z",
+  "created_at": "2026-11-06T13:08:10Z",
   "environment": {
     "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
     "python": "3.12.3",
     "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
-    "git_commit": "e318b57"
+    "git_commit": "c07bf75"
   },
   "command": "python3 tools/capture_cli.py",
   "exit_code": 0,
@@ -88,7 +88,7 @@
     {
       "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/README.md",
       "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/README.md",
-      "sha256": "a0050371175a48fdd99acd5a749f1df987266ce8413fb6260dc1f27ae02bdebc"
+      "sha256": "44c5560b45efb00db253705c0c0a0c2c87125759e21caa66d66777bde0985bae"
     },
     {
       "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/AGENTS.md",
@@ -108,7 +108,7 @@
     {
       "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/CORRECCIONES.md",
       "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/CORRECCIONES.md",
-      "sha256": "8838635d4db90cb8548400a1f8fa476526a282d8d7d7db4221e3fa09bcfad69b"
+      "sha256": "943d9ee5bf9f963e2f9783c4512a917563c4ef4634e2e0e4cc182760a07101a8"
     }
   ],
   "claims": [

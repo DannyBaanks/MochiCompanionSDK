@@ -137,6 +137,8 @@ ningún número: el bloque de arranque del `README.md` ahora muestra el comando 
 sale del spec) en lugar de un `--par ...` abreviado; se quitó un enlace de GitHub
 que no estaba verificado; y en `GUIA.md` trampa 12 se tachó el número de serie del
 disco de la workstation (`gio mount -l`), que no es dato del experimento. El crudo
-de este pack no contiene ninguna de esas cadenas.
+de este pack no contiene ninguna de esas cadenas. Un tercer re-sello agregó la URL
+real del repositorio (`github.com/DannyBaanks/MochiCompanionSDK`) en el bloque de
+instalación del `README.md`, que hasta ese momento tenía un placeholder.
 
 

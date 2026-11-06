@@ -46,7 +46,8 @@ The agent path can *never* write to the device — only a human running `apply` 
 Clone and run in place; `./mochic` puts the repo root on `sys.path`:
 
 ```bash
-git clone <this-repo> && cd MochiCompanionSDK
+git clone https://github.com/DannyBaanks/MochiCompanionSDK.git
+cd MochiCompanionSDK
 python3 -m venv .venv && . .venv/bin/activate
 pip install pillow numpy pyyaml
 ./mochic version
