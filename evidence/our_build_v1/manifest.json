@@ -1,0 +1,134 @@
+{
+  "schema": "isyco-evidence-pack-v1",
+  "created_at": "2026-11-06T13:02:24Z",
+  "environment": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
+    "git_commit": "e318b57"
+  },
+  "command": "python3 tools/capture_our_build.py",
+  "exit_code": 0,
+  "stdout": {
+    "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/stdout.raw.txt",
+    "relative": "evidence/our_build_v1/stdout.raw.txt",
+    "sha256": "9d4eea5749e50531e31a79308b96537c148e001627376042873880b92987d4d9"
+  },
+  "artifacts": [
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/VERDICT.md",
+      "relative": "evidence/our_build_v1/VERDICT.md",
+      "sha256": "32ab0bac002c322efa2ecb18eabb0ae100d03161aed8135f50078054ffb03d50"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/journal-boot.json",
+      "relative": "evidence/our_build_v1/journal-boot.json",
+      "sha256": "8bc43e34afeb95a96183538b24170b11c03037aa41553711b08b6426d43b7d25"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/journal-video.json",
+      "relative": "evidence/our_build_v1/journal-video.json",
+      "sha256": "1a336c3dea49bd5248d9ba941e8c1c55ed0a8724d1a0c7fef973fb0d3b7fe3be"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/journal-boot-audio.json",
+      "relative": "evidence/our_build_v1/journal-boot-audio.json",
+      "sha256": "222817116f1aedc78286af5da209483c8b17907430fecbc9714acc0172911bf1"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/spec-boot.json",
+      "relative": "evidence/our_build_v1/spec-boot.json",
+      "sha256": "37e58b1163f24eab6dea17892965d8204b810f9ed0ed4bc01e4087b22273fdb9"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/spec-video.json",
+      "relative": "evidence/our_build_v1/spec-video.json",
+      "sha256": "e0567ab944e3c3a0fa2ece2772d5acce571552e7f7cf47fb3e0d03c614066528"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/spec-boot-audio.json",
+      "relative": "evidence/our_build_v1/spec-boot-audio.json",
+      "sha256": "9e61888752f795678d2929c6a911db94281482020c70fe1b77cda77a8f779989"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_86f15586.avi",
+      "relative": "evidence/our_build_v0/input/startup__nuestro_86f15586.avi",
+      "sha256": "86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/Blink__nuestro_541c29e4.avi",
+      "relative": "evidence/our_build_v0/input/Blink__nuestro_541c29e4.avi",
+      "sha256": "541c29e4c582250ea4d870f9322b272f227efbc8255e72afad37b220a7f9d5ae"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_con_campana_e7b85961.avi",
+      "relative": "evidence/our_build_v0/input/startup__nuestro_con_campana_e7b85961.avi",
+      "sha256": "e7b85961ba95a3e9c722add92d6cdc4dc079d8317d96da8b1b4f02527c013582"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/boot-chime.wav",
+      "relative": "evidence/our_build_v0/input/boot-chime.wav",
+      "sha256": "442e4087cf0731d3d934dbafc39a86881c1afadbb4348b08e75ef7769119160a"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/capture_our_build.py",
+      "relative": "tools/capture_our_build.py",
+      "sha256": "0cf134a08723246ae475e4359188903bf71ec6626ce8a61558075fe3f2249656"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/deploy.py",
+      "relative": "mochisdk/deploy.py",
+      "sha256": "704fce8cc19d95710b4f8401a449fbad0d2388de0cf5faeadf5ef22df7621391"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tests/test_deploy_playlist.py",
+      "relative": "tests/test_deploy_playlist.py",
+      "sha256": "069771fb7af14c8343b6b0b9f0ef8cfed4b9a9a135891b25765c16c4bba23bed"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Los bytes instalados son byte a byte los que produjeron spec->build en este repo (3/3 IDENTICO)",
+      "status": "PASS"
+    },
+    {
+      "text": "La cadena sigue siendo determinista horas despues de la escritura (3/3 sha identico al instalado)",
+      "status": "PASS"
+    },
+    {
+      "text": "Cada archivo instalado valida 0 duros contra mochi-factory-v1",
+      "status": "PASS"
+    },
+    {
+      "text": "Controles verdes: 184 tests y profile --control 62 archivos / 0 rechazados",
+      "status": "PASS"
+    },
+    {
+      "text": "El firmware de fabrica reproduce en el arranque un AVI generado por este SDK (observado en pantalla, sin captura de cámara sellada)",
+      "status": "CONDITIONAL_PASS"
+    },
+    {
+      "text": "El PCM mono instalado (boot-chime.wav -> e7b85961) suena en el arranque",
+      "status": "NOT_DEMONSTRATED"
+    },
+    {
+      "text": "El slot del playlist (video/Blink.avi = 541c29e4) se reproduce; su disparo fisico es desconocido",
+      "status": "NOT_DEMONSTRATED"
+    },
+    {
+      "text": "deploy.apply conservaba un backup util por escritura cuando dos escrituras apuntaban al mismo destino con el mismo backup_root (journal-boot: backup 86f15586 != sha_previo dbd65d1f)",
+      "status": "FAIL"
+    },
+    {
+      "text": "Tras el fix: dos escrituras al mismo destino conservan backups distinguibles, el rollback de la primera restaura el estado original, y con un backup adulterado rollback se niega antes de escribir",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Un DASAI Mega Mochi de fabrica, un solo slot (el de arranque) y los tres archivos generados por este SDK el 2026-11-06. No generaliza a otros firmwares ni al playlist.",
+  "not_demonstrated": [
+    "Que el clip del playlist se muestre alguna vez",
+    "Que el chime PCM se oiga",
+    "Relectura en vivo del volumen: grep sda1 /proc/mounts devuelve rc 1, no montado al sellar",
+    "Recuperacion de dbd65d1f desde journal-boot (backup colisionado); el original de fabrica acb6afb9 si esta preservado"
+  ]
+}

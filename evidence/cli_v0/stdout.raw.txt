@@ -1,0 +1,1228 @@
+$ mochic version
+[exit 0]
+{
+ "codigos_salida": {
+  "0": "OK",
+  "1": "hallazgo duro",
+  "2": "uso",
+  "3": "entrada ilegible",
+  "4": "token no coincide",
+  "5": "operacion no demostrada"
+ },
+ "perfil": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-factory-v1.json",
+ "perfil_sha256": "e3ef250444f57706c59f044126800db304f92e1c2c9146ba8488f15f33aff21e",
+ "puente": "mochi-bridge-v1",
+ "sdk": "mochisdk",
+ "spec": "mochi-anim-v1",
+ "version": "0.1.0"
+}
+
+$ mochic profile --control
+[exit 0]
+{
+ "control_positivo": {
+  "archivos": 62,
+  "esperado": 0,
+  "lista_rechazados": [],
+  "motivo": "un asset factory rechazado implica regla mala, no asset malo",
+  "rechazados": 0,
+  "veredicto": "PASS"
+ },
+ "corpus_sha256": "0c05fea119d21611cb938b6485ddf093392ea4f34d4442b20bc8baa9b1c1d338",
+ "fuente": "/home/danny/megamochi-backup/volume_files/video",
+ "hechos": {
+  "actual_bytes_per_sec": {
+   "max": 745702.0,
+   "mean": 356178.994,
+   "median": 321290.5,
+   "min": 214692.2,
+   "n": 62,
+   "p95": 559418.7,
+   "p99": 651154.3
+  },
+  "audio_format": [
+   "{\"avg_bytes_per_sec\": 96000, \"bits_per_sample\": 16, \"block_align\": 2, \"channels\": 1, \"format_tag\": 1, \"kind\": \"WAVEFORMATEX\", \"samples_per_sec\": 48000}"
+  ],
+  "audio_total_eq_3200_x_video": {
+   "true": 62
+  },
+  "blueprint_unicas": 1,
+  "bytes_corpus": 113450456,
+  "dims": [
+   [
+    480,
+    480
+   ]
+  ],
+  "duration_s": {
+   "max": 16.7,
+   "mean": 5.188,
+   "median": 4.966667,
+   "min": 0.5,
+   "n": 62,
+   "p95": 10.5,
+   "p99": 10.633333
+  },
+  "fps": [
+   30.0
+  ],
+  "handler_video": [
+   "MJPG"
+  ],
+  "idx1_full_match": 62,
+  "interleave_head": {
+   "vavavavavava": 62
+  },
+  "jpeg_encoder_comment": [
+   "Lavc61.19.100"
+  ],
+  "jpeg_sof_dims": [
+   [
+    480,
+    480
+   ]
+  ],
+  "max_frame_bytes_across_corpus": {
+   "max": 31893,
+   "mean": 13009.645,
+   "median": 11190,
+   "min": 5054,
+   "n": 62,
+   "p95": 23527,
+   "p99": 25632
+  },
+  "n_archivos": 62,
+  "payloads_constantes": {
+   "RIFF[AVI ]/JUNK#1": "5817bc65840cf706",
+   "RIFF[AVI ]/LIST[INFO]/ISFT#1": "aa5bcdaf89493344",
+   "RIFF[AVI ]/LIST[hdrl]/JUNK#1": "75975481f8e1fd5d",
+   "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#1": "399030953c7e736d",
+   "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#2": "3931e73d9cca98f1",
+   "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#1": "1c16777aa32c722e",
+   "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#2": "157b4d12044c8160",
+   "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/vprp#1": "a29ef1b0189bfc66"
+  },
+  "suggested_buf_eq_max_frame": {
+   "true": 62
+  }
+ },
+ "herramienta": "mochisdk/container.py (RIFF puro, sin ffmpeg)",
+ "metodo": "python3 tools/measure_corpus.py",
+ "perfil": "mochi-factory-v1",
+ "techo_bitrate": {
+  "audio_bytes_por_frame": [
+   0,
+   3200
+  ],
+  "declarado_max": 121000,
+  "declarado_min": 121000,
+  "frame_max_absoluto": 31893,
+  "nota": "El techo que importa para generar assets nuevos es el maximo de bytes por frame y el max_bytes_per_sec declarados por los archivos que el firmware ya reproduce.",
+  "real_max": 745702.0
+ }
+}
+
+$ mochic inspect /home/danny/megamochi-backup/volume_files/video/Angry.avi
+[exit 0]
+{
+ "archivo": "/home/danny/megamochi-backup/volume_files/video/Angry.avi",
+ "audio_bytes": 256000,
+ "audio_cuanto_ok": true,
+ "avih": {
+  "flags": 2320,
+  "height": 480,
+  "initial_streams": 0,
+  "max_bytes_per_sec": 121000,
+  "microsec_per_frame": 33333,
+  "padding_granularity": 0,
+  "streams": 2,
+  "suggested_buf_size": 1048576,
+  "total_frames": 80,
+  "width": 480
+ },
+ "bytes": 1214564,
+ "duracion_s": 2.6667,
+ "frame_bytes": {
+  "max": 18726,
+  "min": 3560,
+  "total": 944667
+ },
+ "idx1_entries": 161,
+ "jpeg_forma": [
+  192,
+  8,
+  480,
+  480,
+  [
+   34,
+   17,
+   17
+  ]
+ ],
+ "registros": {
+  "audio": 81,
+  "otros": 0,
+  "video": 80
+ },
+ "sha256": "0e24d1a9ec9213c0bf8362ad02b1bab5197cce81fa38817739be874f98f7c19b",
+ "streams": [
+  {
+   "fcc_handler": "MJPG",
+   "fcc_type": "vids",
+   "flags": 0,
+   "initial_frames": 0,
+   "language": 0,
+   "length": 80,
+   "priority": 0,
+   "quality": -1,
+   "rate": 30,
+   "rect": [
+    0,
+    0,
+    480,
+    480
+   ],
+   "sample_size": 0,
+   "scale": 1,
+   "size": 56,
+   "start": 0,
+   "suggested_buf": 18726
+  },
+  {
+   "fcc_handler": "hex:01000000",
+   "fcc_type": "auds",
+   "flags": 0,
+   "initial_frames": 0,
+   "language": 0,
+   "length": 128000,
+   "priority": 0,
+   "quality": -1,
+   "rate": 48000,
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "sample_size": 2,
+   "scale": 1,
+   "size": 56,
+   "start": 0,
+   "suggested_buf": 3200
+  }
+ ],
+ "strf": [
+  {
+   "bitcount": 24,
+   "clr_important": 0,
+   "clr_used": 0,
+   "compression": "MJPG",
+   "height": 480,
+   "image_size": 691200,
+   "planes": 1,
+   "size": 40,
+   "width": 480,
+   "xppm": 0,
+   "yppm": 0
+  },
+  {
+   "avg_bytes_per_sec": 96000,
+   "bits_per_sample": 16,
+   "block_align": 2,
+   "channels": 1,
+   "format_tag": 1,
+   "samples_per_sec": 48000
+  }
+ ]
+}
+
+$ mochic validate /home/danny/megamochi-backup/volume_files/video/Angry.avi
+[exit 0]
+{
+ "archivos": 1,
+ "duros": 0,
+ "invalidos": 0,
+ "reportes": [
+  {
+   "archivo": "/home/danny/megamochi-backup/volume_files/video/Angry.avi",
+   "duros": 0,
+   "hallazgos": [],
+   "sha256": "0e24d1a9ec9213c0bf8362ad02b1bab5197cce81fa38817739be874f98f7c19b",
+   "suaves": 0,
+   "valido": true
+  }
+ ]
+}
+
+$ mochic playlist /tmp/mochi-fake-vol
+[exit 0]
+{
+ "archivos_fuera_de_playlist": [],
+ "avisos": [
+  "agregar entradas nuevas no esta demostrado que el firmware lo acepte"
+ ],
+ "bytes": 7936,
+ "entradas": 62,
+ "playlist": "/tmp/mochi-fake-vol/playlist.lst",
+ "sha256": "af6de1fc47c211834a21dff5cadecf8c2d8776bfacd6f1fea678b9a8bc4d1bd8",
+ "slots": [
+  {
+   "bytes": 1486654,
+   "existe": true,
+   "i": 0,
+   "nombre": "Akward_Laugh.avi"
+  },
+  {
+   "bytes": 1214564,
+   "existe": true,
+   "i": 1,
+   "nombre": "Angry.avi"
+  },
+  {
+   "bytes": 1520328,
+   "existe": true,
+   "i": 2,
+   "nombre": "Banana.avi"
+  },
+  {
+   "bytes": 1487106,
+   "existe": true,
+   "i": 3,
+   "nombre": "Blade.avi"
+  },
+  {
+   "bytes": 126810,
+   "existe": true,
+   "i": 4,
+   "nombre": "Blink.avi"
+  },
+  {
+   "bytes": 349654,
+   "existe": true,
+   "i": 5,
+   "nombre": "Braking.avi"
+  },
+  {
+   "bytes": 1374274,
+   "existe": true,
+   "i": 6,
+   "nombre": "Crying.avi"
+  },
+  {
+   "bytes": 1671296,
+   "existe": true,
+   "i": 7,
+   "nombre": "Crying_Smile.avi"
+  },
+  {
+   "bytes": 1972262,
+   "existe": true,
+   "i": 8,
+   "nombre": "Cursed_Smile.avi"
+  },
+  {
+   "bytes": 1614918,
+   "existe": true,
+   "i": 9,
+   "nombre": "DasaiBreak.avi"
+  },
+  {
+   "bytes": 1670788,
+   "existe": true,
+   "i": 10,
+   "nombre": "DemonSlayerNezuko.avi"
+  },
+  {
+   "bytes": 1827308,
+   "existe": true,
+   "i": 11,
+   "nombre": "Distracted.avi"
+  },
+  {
+   "bytes": 1489370,
+   "existe": true,
+   "i": 12,
+   "nombre": "Dumb_Love.avi"
+  },
+  {
+   "bytes": 1686274,
+   "existe": true,
+   "i": 13,
+   "nombre": "Glitch.avi"
+  },
+  {
+   "bytes": 862164,
+   "existe": true,
+   "i": 14,
+   "nombre": "HadokenKit.avi"
+  },
+  {
+   "bytes": 859400,
+   "existe": true,
+   "i": 15,
+   "nombre": "HadokenMiss.avi"
+  },
+  {
+   "bytes": 4421992,
+   "existe": true,
+   "i": 16,
+   "nombre": "HeadLights.avi"
+  },
+  {
+   "bytes": 2277376,
+   "existe": true,
+   "i": 17,
+   "nombre": "Jam_Cookie.avi"
+  },
+  {
+   "bytes": 2154274,
+   "existe": true,
+   "i": 18,
+   "nombre": "Keep It UP.avi"
+  },
+  {
+   "bytes": 1979442,
+   "existe": true,
+   "i": 19,
+   "nombre": "LB_Burn_Smoke.avi"
+  },
+  {
+   "bytes": 3056220,
+   "existe": true,
+   "i": 20,
+   "nombre": "LB_Gold_Wheel.avi"
+  },
+  {
+   "bytes": 1716028,
+   "existe": true,
+   "i": 21,
+   "nombre": "LB_Japan_Flag.avi"
+  },
+  {
+   "bytes": 531390,
+   "existe": true,
+   "i": 22,
+   "nombre": "Look Down.avi"
+  },
+  {
+   "bytes": 379594,
+   "existe": true,
+   "i": 23,
+   "nombre": "Look Left.avi"
+  },
+  {
+   "bytes": 379294,
+   "existe": true,
+   "i": 24,
+   "nombre": "Look Right.avi"
+  },
+  {
+   "bytes": 500624,
+   "existe": true,
+   "i": 25,
+   "nombre": "Look Up.avi"
+  },
+  {
+   "bytes": 1204960,
+   "existe": true,
+   "i": 26,
+   "nombre": "Love.avi"
+  },
+  {
+   "bytes": 2015096,
+   "existe": true,
+   "i": 27,
+   "nombre": "M03_Angry_Flames.avi"
+  },
+  {
+   "bytes": 2971404,
+   "existe": true,
+   "i": 28,
+   "nombre": "M03_Bee.avi"
+  },
+  {
+   "bytes": 2829598,
+   "existe": true,
+   "i": 29,
+   "nombre": "M03_Equip.avi"
+  },
+  {
+   "bytes": 2579212,
+   "existe": true,
+   "i": 30,
+   "nombre": "M03_Mecha_Doc.avi"
+  },
+  {
+   "bytes": 3728510,
+   "existe": true,
+   "i": 31,
+   "nombre": "M03_Pinky.avi"
+  },
+  {
+   "bytes": 3599344,
+   "existe": true,
+   "i": 32,
+   "nombre": "M03_Rearlight_Rain.avi"
+  },
+  {
+   "bytes": 1375798,
+   "existe": true,
+   "i": 33,
+   "nombre": "M03_RGB_Base.avi"
+  },
+  {
+   "bytes": 3039508,
+   "existe": true,
+   "i": 34,
+   "nombre": "M03_Road_Rage.avi"
+  },
+  {
+   "bytes": 2585910,
+   "existe": true,
+   "i": 35,
+   "nombre": "M03_Rotation.avi"
+  },
+  {
+   "bytes": 2447832,
+   "existe": true,
+   "i": 36,
+   "nombre": "M03_Shift_Channels.avi"
+  },
+  {
+   "bytes": 1587430,
+   "existe": true,
+   "i": 37,
+   "nombre": "M03_Snot.avi"
+  },
+  {
+   "bytes": 2393182,
+   "existe": true,
+   "i": 38,
+   "nombre": "M03_SprayPaint.avi"
+  },
+  {
+   "bytes": 2705532,
+   "existe": true,
+   "i": 39,
+   "nombre": "M03_Sushi.avi"
+  },
+  {
+   "bytes": 2643714,
+   "existe": true,
+   "i": 40,
+   "nombre": "MusicFace.avi"
+  },
+  {
+   "bytes": 3293538,
+   "existe": true,
+   "i": 41,
+   "nombre": "Neon Sign.avi"
+  },
+  {
+   "bytes": 1379448,
+   "existe": true,
+   "i": 42,
+   "nombre": "Nose_Fire.avi"
+  },
+  {
+   "bytes": 1091380,
+   "existe": true,
+   "i": 43,
+   "nombre": "Nose_Smoke.avi"
+  },
+  {
+   "bytes": 1961050,
+   "existe": true,
+   "i": 44,
+   "nombre": "Police.avi"
+  },
+  {
+   "bytes": 2466818,
+   "existe": true,
+   "i": 45,
+   "nombre": "Pong.avi"
+  },
+  {
+   "bytes": 1667492,
+   "existe": true,
+   "i": 46,
+   "nombre": "Pretentious.avi"
+  },
+  {
+   "bytes": 2351126,
+   "existe": true,
+   "i": 47,
+   "nombre": "Rainbow_Face.avi"
+  },
+  {
+   "bytes": 935390,
+   "existe": true,
+   "i": 48,
+   "nombre": "Raspberry.avi"
+  },
+  {
+   "bytes": 3494602,
+   "existe": true,
+   "i": 49,
+   "nombre": "Revs.avi"
+  },
+  {
+   "bytes": 1576878,
+   "existe": true,
+   "i": 50,
+   "nombre": "Sakura.avi"
+  },
+  {
+   "bytes": 2122376,
+   "existe": true,
+   "i": 51,
+   "nombre": "Sleepy.avi"
+  },
+  {
+   "bytes": 595704,
+   "existe": true,
+   "i": 52,
+   "nombre": "Smile.avi"
+  },
+  {
+   "bytes": 1488998,
+   "existe": true,
+   "i": 53,
+   "nombre": "SmirkingLaugh.avi"
+  },
+  {
+   "bytes": 753946,
+   "existe": true,
+   "i": 54,
+   "nombre": "Sneeze.avi"
+  },
+  {
+   "bytes": 458010,
+   "existe": true,
+   "i": 55,
+   "nombre": "Squint.avi"
+  },
+  {
+   "bytes": 3391820,
+   "existe": true,
+   "i": 56,
+   "nombre": "Stars.avi"
+  },
+  {
+   "bytes": 1738730,
+   "existe": true,
+   "i": 57,
+   "nombre": "Tsurikawa_Square.avi"
+  },
+  {
+   "bytes": 2702084,
+   "existe": true,
+   "i": 58,
+   "nombre": "Turbos.avi"
+  },
+  {
+   "bytes": 1147162,
+   "existe": true,
+   "i": 59,
+   "nombre": "UpsideDown.avi"
+  },
+  {
+   "bytes": 813936,
+   "existe": true,
+   "i": 60,
+   "nombre": "UwU.avi"
+  },
+  {
+   "bytes": 1703534,
+   "existe": true,
+   "i": 61,
+   "nombre": "Yawn.avi"
+  }
+ ]
+}
+
+$ mochic map --mostrar
+[exit 0]
+{
+ "drag": "UpsideDown.avi",
+ "error": "Crying.avi",
+ "idle": "Blink.avi",
+ "running-left": "Look Left.avi",
+ "running-right": "Look Right.avi",
+ "success": "Smile.avi",
+ "thinking": "Squint.avi",
+ "waiting": "Sleepy.avi",
+ "working": "Revs.avi"
+}
+
+$ mochic spec --pack "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat" --animacion thinking --slot Squint.avi --fotogramas 60 --id demo-thinking -o examples/demo-thinking.json
+[exit 0]
+{
+ "escrito": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/examples/demo-thinking.json",
+ "spec": "demo-thinking"
+}
+
+$ mochic build examples/demo-thinking.json
+[exit 0]
+{
+ "animacion": "thinking",
+ "budget_por_frame": 24000,
+ "bytes_avi": 1594526,
+ "duracion_s": 2.0,
+ "frame_bytes": {
+  "max": 23543,
+  "min": 22419,
+  "total": 1389572
+ },
+ "frames": 60,
+ "jpeg_quality": {
+  "max": 93,
+  "mediana": 92,
+  "min": 91
+ },
+ "nombre_video_destino": "Squint.avi",
+ "origen": "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat/malbolgato-thinking.gif",
+ "ruta": "build/demo-thinking.avi",
+ "sha256": "77a9df099345f584edfb1c6f31d9972b19d617bd11fe9b0885e006486eef6601",
+ "siguiente_paso": "mochic plan VOLUMEN examples/demo-thinking.json",
+ "spec_id": "demo-thinking",
+ "validacion": {
+  "duros": 0,
+  "hallazgos": [
+   {
+    "esperado": 745702.0,
+    "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+    "observado": 797263.0,
+    "regla": "bitrate.real",
+    "severidad": "soft"
+   }
+  ],
+  "suaves": 1,
+  "valido": true
+ }
+}
+
+$ mochic validate build/demo-thinking.avi
+[exit 0]
+{
+ "archivos": 1,
+ "duros": 0,
+ "invalidos": 0,
+ "reportes": [
+  {
+   "archivo": "build/demo-thinking.avi",
+   "duros": 0,
+   "hallazgos": [
+    {
+     "esperado": 745702.0,
+     "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+     "observado": 797263.0,
+     "regla": "bitrate.real",
+     "severidad": "soft"
+    }
+   ],
+   "sha256": "77a9df099345f584edfb1c6f31d9972b19d617bd11fe9b0885e006486eef6601",
+   "suaves": 1,
+   "valido": true
+  }
+ ]
+}
+
+$ mochic plan /tmp/mochi-fake-vol examples/demo-thinking.json --salida build/plan-demo.json
+[exit 0]
+{
+ "accion": "mochi-deploy-v1",
+ "advertencia": "Escribir en el volumen cambia el estado del dispositivo. Este plan no ha escrito nada.",
+ "comando_siguiente": "mochic apply /home/danny/Development/ISyCo Git/MochiCompanionSDK/build/plan-demo.json --token 4cce25869afb",
+ "creado_utc": "2026-11-06T10:59:17Z",
+ "operaciones": [
+  {
+   "destino": "video/Squint.avi",
+   "destino_absoluto": "/tmp/mochi-fake-vol/video/Squint.avi",
+   "destino_bytes_actual": 458010,
+   "destino_sha256_actual": "eceb82700b1fbf2d21111cec06e2d9c7deaf4c84708c87aca1a6c348ad0eec9e",
+   "origen": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/build/demo-thinking.avi",
+   "origen_bytes": 1594526,
+   "origen_sha256": "77a9df099345f584edfb1c6f31d9972b19d617bd11fe9b0885e006486eef6601",
+   "suaves": [
+    {
+     "esperado": 745702.0,
+     "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+     "observado": 797263.0,
+     "regla": "bitrate.real",
+     "severidad": "soft"
+    }
+   ]
+  }
+ ],
+ "plan_archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/build/plan-demo.json",
+ "token": "4cce25869afb",
+ "total_bytes": 1594526,
+ "volumen": "/tmp/mochi-fake-vol"
+}
+
+$ mochic apply build/plan-demo.json --token TOKEN-MALO
+[exit 4]
+{"error": "GateError", "mensaje": "el token no coincide con el plan; nada escrito", "codigo_salida": 4}
+
+$ mochic apply build/plan-demo.json --token 4cce25869afb --copia /tmp/mochi-bridge/backup --diario /tmp/mochi-bridge/journal.json
+[exit 0]
+{
+ "avisos": [
+  "el firmware no ha sido observado todavia con estos archivos nuevos",
+  "rollback: mochic rollback /tmp/mochi-bridge/journal.json"
+ ],
+ "backup_root": "/tmp/mochi-bridge/backup",
+ "escritos": [
+  "video/Squint.avi"
+ ],
+ "journal": "/tmp/mochi-bridge/journal.json",
+ "total_bytes": 1594526,
+ "volumen": "/tmp/mochi-fake-vol"
+}
+
+$ mochic rollback /tmp/mochi-bridge/journal.json
+[exit 0]
+{
+ "journal": "/tmp/mochi-bridge/journal.json",
+ "restaurados": [
+  [
+   "video/Squint.avi",
+   "restaurado"
+  ]
+ ]
+}
+
+$ mochic plan /tmp/mochi-fake-vol examples/demo-thinking.json --salida build/plan-2.json
+[exit 0]
+{
+ "accion": "mochi-deploy-v1",
+ "advertencia": "Escribir en el volumen cambia el estado del dispositivo. Este plan no ha escrito nada.",
+ "comando_siguiente": "mochic apply /home/danny/Development/ISyCo Git/MochiCompanionSDK/build/plan-2.json --token 4cce25869afb",
+ "creado_utc": "2026-11-06T10:59:17Z",
+ "operaciones": [
+  {
+   "destino": "video/Squint.avi",
+   "destino_absoluto": "/tmp/mochi-fake-vol/video/Squint.avi",
+   "destino_bytes_actual": 458010,
+   "destino_sha256_actual": "eceb82700b1fbf2d21111cec06e2d9c7deaf4c84708c87aca1a6c348ad0eec9e",
+   "origen": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/build/demo-thinking.avi",
+   "origen_bytes": 1594526,
+   "origen_sha256": "77a9df099345f584edfb1c6f31d9972b19d617bd11fe9b0885e006486eef6601",
+   "suaves": [
+    {
+     "esperado": 745702.0,
+     "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+     "observado": 797263.0,
+     "regla": "bitrate.real",
+     "severidad": "soft"
+    }
+   ]
+  }
+ ],
+ "plan_archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/build/plan-2.json",
+ "token": "4cce25869afb",
+ "total_bytes": 1594526,
+ "volumen": "/tmp/mochi-fake-vol"
+}
+
+$ mochic plan /tmp/mochi-fake-vol --par build/no-existe.avi video/Blink.avi
+[exit 3]
+{"error": "InputError", "mensaje": "no existe el origen: build/no-existe.avi (primero `mochic build`)", "codigo_salida": 3}
+
+$ mochic emit state --inbox /tmp/mochi-bridge/inbox.jsonl --agente agente-demo --valor working
+[exit 0]
+{
+ "evento": {
+  "agent": "agente-demo",
+  "created_at": "2026-11-06T10:59:18Z",
+  "id": "mochi-state-d464e1b52391",
+  "type": "state",
+  "value": "working",
+  "version": "companion-event-v1"
+ },
+ "inbox": "/tmp/mochi-bridge/inbox.jsonl",
+ "siguiente_paso": "mochic watch --pack PACK"
+}
+
+$ mochic emit state --inbox /tmp/mochi-bridge/inbox.jsonl --agente agente-demo --valor thinking
+[exit 0]
+{
+ "evento": {
+  "agent": "agente-demo",
+  "created_at": "2026-11-06T10:59:18Z",
+  "id": "mochi-state-8d60bb150d37",
+  "type": "state",
+  "value": "thinking",
+  "version": "companion-event-v1"
+ },
+ "inbox": "/tmp/mochi-bridge/inbox.jsonl",
+ "siguiente_paso": "mochic watch --pack PACK"
+}
+
+$ mochic emit mood --inbox /tmp/mochi-bridge/inbox.jsonl --agente agente-demo --valor error
+[exit 0]
+{
+ "evento": {
+  "agent": "agente-demo",
+  "created_at": "2026-11-06T10:59:18Z",
+  "id": "mochi-mood-9a01727980ef",
+  "type": "mood",
+  "value": "error",
+  "version": "companion-event-v1"
+ },
+ "inbox": "/tmp/mochi-bridge/inbox.jsonl",
+ "siguiente_paso": "mochic watch --pack PACK"
+}
+
+$ mochic emit move --inbox /tmp/mochi-bridge/inbox.jsonl --agente agente-demo --valor top-right
+[exit 0]
+{
+ "evento": {
+  "agent": "agente-demo",
+  "created_at": "2026-11-06T10:59:18Z",
+  "id": "mochi-move-225ede74d090",
+  "type": "move",
+  "value": "top-right",
+  "version": "companion-event-v1"
+ },
+ "inbox": "/tmp/mochi-bridge/inbox.jsonl",
+ "siguiente_paso": "mochic watch --pack PACK"
+}
+
+$ mochic emit summon --inbox /tmp/mochi-bridge/inbox.jsonl --agente agente-demo
+[exit 0]
+{
+ "evento": {
+  "agent": "agente-demo",
+  "created_at": "2026-11-06T10:59:18Z",
+  "id": "mochi-summon-54b18e7caf9c",
+  "type": "summon",
+  "version": "companion-event-v1"
+ },
+ "inbox": "/tmp/mochi-bridge/inbox.jsonl",
+ "siguiente_paso": "mochic watch --pack PACK"
+}
+
+$ mochic emit say --inbox /tmp/mochi-bridge/inbox.jsonl --agente agente-demo --mensaje termine
+[exit 0]
+{
+ "evento": {
+  "agent": "agente-demo",
+  "created_at": "2026-11-06T10:59:18Z",
+  "id": "mochi-say-f35e9d871df4",
+  "text": "termine",
+  "type": "say",
+  "version": "companion-event-v1"
+ },
+ "inbox": "/tmp/mochi-bridge/inbox.jsonl",
+ "siguiente_paso": "mochic watch --pack PACK"
+}
+
+$ mochic watch --inbox /tmp/mochi-bridge/inbox.jsonl --pack "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat" --volumen /tmp/mochi-fake-vol --outbox /tmp/mochi-bridge/outbox.jsonl --cursor-root /tmp/mochi-bridge/cursor --fotogramas 45
+[exit 0]
+{
+ "desde_bytes": 0,
+ "escribio_volumen": false,
+ "eventos": 6,
+ "hasta_bytes": 976,
+ "inbox": "/tmp/mochi-bridge/inbox.jsonl",
+ "no_demostrado": [
+  "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+  "el numero de entradas de playlist.lst puede ser distinto de 62",
+  "el firmware relee el volumen sin quitar el cable"
+ ],
+ "resultados": [
+  {
+   "animacion": "working",
+   "bytes": 1535834,
+   "evento": "mochi-state-d464e1b52391",
+   "frames": 45,
+   "hallazgos": {
+    "duros": 0,
+    "hallazgos": [
+     {
+      "esperado": 745702.0,
+      "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+      "observado": 1023889.3,
+      "regla": "bitrate.real",
+      "severidad": "soft"
+     }
+    ],
+    "suaves": 1,
+    "valido": true
+   },
+   "no_demostrado": [
+    "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+    "el numero de entradas de playlist.lst puede ser distinto de 62",
+    "el firmware relee el volumen sin quitar el cable"
+   ],
+   "nota": "El render y la validacion son locales; el volumen no se toco.",
+   "plan_token": "ab6cef91ea9f",
+   "plan_volumen": "/tmp/mochi-fake-vol",
+   "salida": "build/working.avi",
+   "sha256": "fb2c7418c9a5815169e054a9b830db5a07e4fa180e9f205eb57c794cbadcb344",
+   "slot": "Revs.avi",
+   "tipo": "state",
+   "valido": true,
+   "valor": "working"
+  },
+  {
+   "animacion": "thinking",
+   "bytes": 1473410,
+   "evento": "mochi-state-8d60bb150d37",
+   "frames": 45,
+   "hallazgos": {
+    "duros": 0,
+    "hallazgos": [
+     {
+      "esperado": 745702.0,
+      "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+      "observado": 982273.3,
+      "regla": "bitrate.real",
+      "severidad": "soft"
+     }
+    ],
+    "suaves": 1,
+    "valido": true
+   },
+   "no_demostrado": [
+    "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+    "el numero de entradas de playlist.lst puede ser distinto de 62",
+    "el firmware relee el volumen sin quitar el cable"
+   ],
+   "nota": "El render y la validacion son locales; el volumen no se toco.",
+   "plan_token": "25966058fe13",
+   "plan_volumen": "/tmp/mochi-fake-vol",
+   "salida": "build/thinking.avi",
+   "sha256": "c97023c305a7e3419393f9a68ca782f3e748a9376973ed2e892947c3c4e64456",
+   "slot": "Squint.avi",
+   "tipo": "state",
+   "valido": true,
+   "valor": "thinking"
+  },
+  {
+   "animacion": "error",
+   "bytes": 1264662,
+   "evento": "mochi-mood-9a01727980ef",
+   "frames": 45,
+   "hallazgos": {
+    "duros": 0,
+    "hallazgos": [
+     {
+      "esperado": 745702.0,
+      "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+      "observado": 843108.0,
+      "regla": "bitrate.real",
+      "severidad": "soft"
+     }
+    ],
+    "suaves": 1,
+    "valido": true
+   },
+   "no_demostrado": [
+    "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+    "el numero de entradas de playlist.lst puede ser distinto de 62",
+    "el firmware relee el volumen sin quitar el cable"
+   ],
+   "nota": "El render y la validacion son locales; el volumen no se toco.",
+   "plan_token": "5a83ad1d7a46",
+   "plan_volumen": "/tmp/mochi-fake-vol",
+   "salida": "build/error.avi",
+   "sha256": "bf2aad68b8e7a27843985b72f21f79cdf391ca9f82c4612ddf62f048832768cb",
+   "slot": "Crying.avi",
+   "tipo": "mood",
+   "valido": true,
+   "valor": "error"
+  },
+  {
+   "animacion": "running-right",
+   "bytes": 1547340,
+   "evento": "mochi-move-225ede74d090",
+   "frames": 45,
+   "hallazgos": {
+    "duros": 0,
+    "hallazgos": [
+     {
+      "esperado": 745702.0,
+      "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+      "observado": 1031560.0,
+      "regla": "bitrate.real",
+      "severidad": "soft"
+     }
+    ],
+    "suaves": 1,
+    "valido": true
+   },
+   "no_demostrado": [
+    "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+    "el numero de entradas de playlist.lst puede ser distinto de 62",
+    "el firmware relee el volumen sin quitar el cable"
+   ],
+   "nota": "El render y la validacion son locales; el volumen no se toco.",
+   "plan_token": "9bbe48a13560",
+   "plan_volumen": "/tmp/mochi-fake-vol",
+   "salida": "build/running-right.avi",
+   "sha256": "0c19a116ee49e0c7fd14bdd3811fe78054a534ee8265fe1566924c4061b88fc5",
+   "slot": "Look Right.avi",
+   "tipo": "move",
+   "valido": true,
+   "valor": "top-right"
+  },
+  {
+   "animacion": "idle",
+   "bytes": 1393564,
+   "evento": "mochi-summon-54b18e7caf9c",
+   "frames": 45,
+   "hallazgos": {
+    "duros": 0,
+    "hallazgos": [
+     {
+      "esperado": 745702.0,
+      "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+      "observado": 929042.7,
+      "regla": "bitrate.real",
+      "severidad": "soft"
+     }
+    ],
+    "suaves": 1,
+    "valido": true
+   },
+   "no_demostrado": [
+    "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+    "el numero de entradas de playlist.lst puede ser distinto de 62",
+    "el firmware relee el volumen sin quitar el cable"
+   ],
+   "nota": "El render y la validacion son locales; el volumen no se toco.",
+   "plan_token": "82c192bbc6d9",
+   "plan_volumen": "/tmp/mochi-fake-vol",
+   "salida": "build/idle.avi",
+   "sha256": "9d66a9ee0baf9cca75ed1a2c6c7841424b0d0e79f13a0acc6271da92568c889b",
+   "slot": "Blink.avi",
+   "tipo": "summon",
+   "valido": true,
+   "valor": null
+  },
+  {
+   "accion": "ignorada",
+   "evento": "mochi-say-f35e9d871df4",
+   "motivo": "el evento no pide ninguna animacion",
+   "tipo": "say"
+  }
+ ]
+}
+
+$ mochic watch --inbox /tmp/mochi-bridge/inbox.jsonl --pack "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat" --volumen /tmp/mochi-fake-vol --cursor-root /tmp/mochi-bridge/cursor --fotogramas 45
+[exit 0]
+{
+ "desde_bytes": 976,
+ "escribio_volumen": false,
+ "eventos": 0,
+ "hasta_bytes": 976,
+ "inbox": "/tmp/mochi-bridge/inbox.jsonl",
+ "no_demostrado": [
+  "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+  "el numero de entradas de playlist.lst puede ser distinto de 62",
+  "el firmware relee el volumen sin quitar el cable"
+ ],
+ "resultados": []
+}
+
+$ printf "3 eventos" | COMPANION_ROOT=/tmp/mochi-e2e PYTHONPATH=/home/danny/Development/ISyCo Git/Companion/src python3 -c "from companion.cli import main;..." hook
+[exit 0]
+{"line": 1, "status": "queued", "event_id": "evt-real-1"}
+{"line": 2, "status": "queued", "event_id": "evt-real-2"}
+{"line": 3, "status": "error", "error": "value must be one of: error, hidden, idle, success, thinking, waiting, working"}
+
+$ mochic watch --inbox /tmp/mochi-e2e/inbox.jsonl --pack "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat" --volumen /tmp/mochi-fake-vol --build-dir /tmp/mochi-e2e/build --cursor-root /tmp/mochi-e2e/cursor --fotogramas 30
+[exit 0]
+{
+ "desde_bytes": 0,
+ "escribio_volumen": false,
+ "eventos": 2,
+ "hasta_bytes": 281,
+ "inbox": "/tmp/mochi-e2e/inbox.jsonl",
+ "no_demostrado": [
+  "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+  "el numero de entradas de playlist.lst puede ser distinto de 62",
+  "el firmware relee el volumen sin quitar el cable"
+ ],
+ "resultados": [
+  {
+   "animacion": "success",
+   "bytes": 1001492,
+   "evento": "evt-real-1",
+   "frames": 30,
+   "hallazgos": {
+    "duros": 0,
+    "hallazgos": [
+     {
+      "esperado": 745702.0,
+      "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+      "observado": 1001492.0,
+      "regla": "bitrate.real",
+      "severidad": "soft"
+     }
+    ],
+    "suaves": 1,
+    "valido": true
+   },
+   "no_demostrado": [
+    "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+    "el numero de entradas de playlist.lst puede ser distinto de 62",
+    "el firmware relee el volumen sin quitar el cable"
+   ],
+   "nota": "El render y la validacion son locales; el volumen no se toco.",
+   "plan_token": "60428aa0fbc2",
+   "plan_volumen": "/tmp/mochi-fake-vol",
+   "salida": "/tmp/mochi-e2e/build/success.avi",
+   "sha256": "497eec8b45538a7b2aaed6ee2aa2b8fd1758414de634fa2e6559c5bfa0b0800b",
+   "slot": "Smile.avi",
+   "tipo": "state",
+   "valido": true,
+   "valor": "success"
+  },
+  {
+   "animacion": "error",
+   "bytes": 843758,
+   "evento": "evt-real-2",
+   "frames": 30,
+   "hallazgos": {
+    "duros": 0,
+    "hallazgos": [
+     {
+      "esperado": 745702.0,
+      "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+      "observado": 843758.0,
+      "regla": "bitrate.real",
+      "severidad": "soft"
+     }
+    ],
+    "suaves": 1,
+    "valido": true
+   },
+   "no_demostrado": [
+    "el firmware reproduce el slot reemplazado ante el estimulo que se esperaba",
+    "el numero de entradas de playlist.lst puede ser distinto de 62",
+    "el firmware relee el volumen sin quitar el cable"
+   ],
+   "nota": "El render y la validacion son locales; el volumen no se toco.",
+   "plan_token": "732d238b8f0b",
+   "plan_volumen": "/tmp/mochi-fake-vol",
+   "salida": "/tmp/mochi-e2e/build/error.avi",
+   "sha256": "ef46f9ee3d0f5d9efe7fbad144c19d9ecee92e777193a7f9d7723f8be20a035a",
+   "slot": "Crying.avi",
+   "tipo": "mood",
+   "valido": true,
+   "valor": "error"
+  }
+ ]
+}
+
+$ python3 -m pytest tests/ -q
+[exit 0]
+........................................................................ [ 40%]
+........................................................................ [ 80%]
+....................................                                     [100%]
+180 passed in 2.99s
+

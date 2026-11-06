@@ -1,0 +1,112 @@
+{
+  "schema": "isyco-evidence-pack-v1",
+  "created_at": "2026-11-06T12:46:59Z",
+  "environment": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
+    "git_commit": "e318b57"
+  },
+  "command": "mochic spec/build (budget 24000, 12000 y 12000+campana) + mochic map + mochic plan + mochic apply sobre startup.avi (dos veces) y video/Blink.avi, con sync y sha256sum (ver stdout.raw.txt)",
+  "exit_code": 0,
+  "stdout": {
+    "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/stdout.raw.txt",
+    "relative": "evidence/our_build_v0/stdout.raw.txt",
+    "sha256": "c99ab964a16cf0dd1e6e30af56ec6b88c492eb67584b439fdae2e8346565ed6f"
+  },
+  "artifacts": [
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/VERDICT.md",
+      "relative": "evidence/our_build_v0/VERDICT.md",
+      "sha256": "c24442c52f1e777d2085ea61402af930a6b82d87786a14607826f9915d965a84"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/spec-boot.json",
+      "relative": "evidence/our_build_v0/spec-boot.json",
+      "sha256": "37e58b1163f24eab6dea17892965d8204b810f9ed0ed4bc01e4087b22273fdb9"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/spec-video.json",
+      "relative": "evidence/our_build_v0/spec-video.json",
+      "sha256": "e0567ab944e3c3a0fa2ece2772d5acce571552e7f7cf47fb3e0d03c614066528"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/spec-boot-audio.json",
+      "relative": "evidence/our_build_v0/spec-boot-audio.json",
+      "sha256": "9e61888752f795678d2929c6a911db94281482020c70fe1b77cda77a8f779989"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/journal-boot.json",
+      "relative": "evidence/our_build_v0/journal-boot.json",
+      "sha256": "8bc43e34afeb95a96183538b24170b11c03037aa41553711b08b6426d43b7d25"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/journal-video.json",
+      "relative": "evidence/our_build_v0/journal-video.json",
+      "sha256": "1a336c3dea49bd5248d9ba941e8c1c55ed0a8724d1a0c7fef973fb0d3b7fe3be"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_86f15586.avi",
+      "relative": "evidence/our_build_v0/input/startup__nuestro_86f15586.avi",
+      "sha256": "86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_con_campana_e7b85961.avi",
+      "relative": "evidence/our_build_v0/input/startup__nuestro_con_campana_e7b85961.avi",
+      "sha256": "e7b85961ba95a3e9c722add92d6cdc4dc079d8317d96da8b1b4f02527c013582"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/Blink__nuestro_541c29e4.avi",
+      "relative": "evidence/our_build_v0/input/Blink__nuestro_541c29e4.avi",
+      "sha256": "541c29e4c582250ea4d870f9322b272f227efbc8255e72afad37b220a7f9d5ae"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/boot-chime.wav",
+      "relative": "evidence/our_build_v0/input/boot-chime.wav",
+      "sha256": "442e4087cf0731d3d934dbafc39a86881c1afadbb4348b08e75ef7769119160a"
+    }
+  ],
+  "claims": [
+    {
+      "text": "mochic spec + mochic build sobre malbolgato-idle.gif producen AVI con 0 duros y 0 suaves, listos para el dispositivo",
+      "status": "PASS"
+    },
+    {
+      "text": "El presupuesto por frame es decision real: con 24000 el bitrate 790316 B/s supera el pico factory observado 745702 y el validator lo marca como suave; con 12000 queda dentro",
+      "status": "PASS"
+    },
+    {
+      "text": "Tres escrituras por la ruta autorizada: token, backup verificado byte a byte antes de escribir, tmp+os.replace, sync y sha del destino igual al del origen (startup 86f15586, startup e7b85961, video/Blink 541c29e4)",
+      "status": "PASS"
+    },
+    {
+      "text": "El slot del playlist se reemplazo respetando la geometria del factory (15 fotogramas, 0.5 s) para que la unica diferencia sea contenido y codificador",
+      "status": "PASS"
+    },
+    {
+      "text": "Con budget 5000 la calidad JPEG cae a mediana 16; el techo observado del dispositivo es 31893 B por fotograma, igualar el peso del factory no era una restriccion del firmware",
+      "status": "PASS"
+    },
+    {
+      "text": "El SDK puede instalar audio real en mono: boot-chime.wav da 169997 muestras no nulas pico 12000, 0 duros, y el archivo instalado sigue siendo conforme leido desde el volumen",
+      "status": "PASS"
+    },
+    {
+      "text": "El pipeline spec->build es determinista: re-corrido despues de la escritura devuelve el mismo sha que el archivo instalado",
+      "status": "PASS"
+    },
+    {
+      "text": "El firmware reproduce nuestros archivos (arranque y slot Blink)",
+      "status": "NOT_DEMONSTRATED"
+    },
+    {
+      "text": "Que el firmware suene con nuestro PCM mono",
+      "status": "NOT_DEMONSTRATED"
+    }
+  ],
+  "scope": "Tres escrituras con autorizacion explicita de Danny (los dos, en orden + idle); no se toco ui.bin, playlist.lst, firmware ni los otros 61 videos",
+  "not_demonstrated": [
+    "observacion en pantalla del arranque con nuestro archivo y del slot Blink",
+    "audio audible con nuestro PCM mono"
+  ]
+}

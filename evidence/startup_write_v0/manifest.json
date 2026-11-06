@@ -1,0 +1,70 @@
+{
+  "schema": "isyco-evidence-pack-v1",
+  "created_at": "2026-11-06T12:28:08Z",
+  "environment": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
+    "git_commit": "e318b57"
+  },
+  "command": "bash: plan -> fix_suggested_buf -> plan -> apply -> sync -> sha256sum del volumen (ver stdout.raw.txt)",
+  "exit_code": 0,
+  "stdout": {
+    "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/startup_write_v0/stdout.raw.txt",
+    "relative": "evidence/startup_write_v0/stdout.raw.txt",
+    "sha256": "9d67e91ff90b5f13446fecc8e1d395510727ef739f24438a7a6dcd561edbc9a1"
+  },
+  "artifacts": [
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/startup_write_v0/VERDICT.md",
+      "relative": "evidence/startup_write_v0/VERDICT.md",
+      "sha256": "510bd1ec508c40093d7947789802e5c2af69f4636385b348e02e564e73166dde"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/startup_write_v0/input__startup_reparado_dbd65d1f.avi",
+      "relative": "evidence/startup_write_v0/input__startup_reparado_dbd65d1f.avi",
+      "sha256": "dbd65d1fdf1ceafc360a51bf5590bbcbcdb527daf1ededd5dbf56bf322def3a4"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/fix_suggested_buf.py",
+      "relative": "tools/fix_suggested_buf.py",
+      "sha256": "33066254c36546aa82a2d5a236ae6027ba2e1e6cf9145042f75e182c51a240ee"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/profile.py",
+      "relative": "mochisdk/profile.py",
+      "sha256": "729e59938e77749f71497ff701596a38451052b11db5f2518e9c585d19f93b82"
+    }
+  ],
+  "claims": [
+    {
+      "text": "La escritura del volumen funciona desde el sistema de archivos: apply escribio 1443076 B y sha256sum del dispositivo = dbd65d1f igual al origen, sin EIO/EROFS ni remount-ro",
+      "status": "PASS"
+    },
+    {
+      "text": "El mensaje los permisos no permiten pegar viene del Nautilus con GMount caducado (servicio del 2026-11-05 22:52, gio mount -l sin Mount), no del Mochi",
+      "status": "PASS"
+    },
+    {
+      "text": "deploy.plan rechaza un origen con hallazgos duros sin escribir nada (AviError strh.video.suggested_buf, exit 1)",
+      "status": "PASS"
+    },
+    {
+      "text": "La reparacion son 2 bytes en el offset 144 (12132 a 7737), el resto bit a bit igual y 0 duros en la copia",
+      "status": "PASS"
+    },
+    {
+      "text": "Reglas derivadas medidas en 63/63: los 63 archivos reales del volumen pasan con 0 duros (antes el startup.avi de fabrica daba 3 falsos duros) y los 62 del playlist siguen en 0",
+      "status": "PASS"
+    },
+    {
+      "text": "Que se ve y se oye en el dispositivo con startup.avi dbd65d1f",
+      "status": "NOT_DEMONSTRATED"
+    }
+  ],
+  "scope": "Una escritura al slot de arranque, autorizada por Danny el 2026-11-06 06:26 local; no se toco ui.bin, playlist.lst, video/ ni firmware",
+  "not_demonstrated": [
+    "comportamiento del reproductor: requiere reinicio fisico del Mochi",
+    "si el firmware acepta un startup.avi mono generado por el SDK"
+  ]
+}

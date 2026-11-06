@@ -1,0 +1,58 @@
+$ date -u +%FT%TZ
+2026-11-06T12:34:28Z
+
+$ sha256sum /media/danny/MEGAMOCHI/startup.avi
+sha256sum: /media/danny/MEGAMOCHI/startup.avi: No existe el archivo o el directorio
+[exit 1]
+
+$ ls -la --time-style=+%FT%TZ /media/danny/MEGAMOCHI/
+ls: no se puede acceder a '/media/danny/MEGAMOCHI/': No existe el archivo o el directorio
+
+$ grep sda1 /proc/mounts
+
+$ journalctl -k --since '-12 min' (eventos usb/sda/FAT/error)
+nov 06 06:33:05 DannyISyCo kernel: usb 7-1: Device not responding to setup address.
+nov 06 06:33:06 DannyISyCo kernel: usb 7-1: Device not responding to setup address.
+nov 06 06:33:06 DannyISyCo kernel: usb 7-1: device not accepting address 3, error -71
+nov 06 06:33:06 DannyISyCo kernel: usb 7-1: WARN: invalid context state for evaluate context command.
+nov 06 06:33:06 DannyISyCo kernel: usb 7-1: new full-speed USB device number 4 using xhci_hcd
+nov 06 06:33:06 DannyISyCo kernel: usb 7-1: Device not responding to setup address.
+nov 06 06:33:06 DannyISyCo kernel: usb 7-1: Device not responding to setup address.
+nov 06 06:33:06 DannyISyCo kernel: usb 7-1: device not accepting address 4, error -71
+nov 06 06:33:06 DannyISyCo kernel: usb 7-1: WARN: invalid context state for evaluate context command.
+nov 06 06:33:38 DannyISyCo kernel: usb 7-1: new full-speed USB device number 5 using xhci_hcd
+nov 06 06:33:38 DannyISyCo kernel: usb 7-1: device descriptor read/64, error -71
+nov 06 06:33:39 DannyISyCo kernel: usb 7-1: device descriptor read/64, error -71
+nov 06 06:33:39 DannyISyCo kernel: usb 7-1: new full-speed USB device number 6 using xhci_hcd
+nov 06 06:33:39 DannyISyCo kernel: usb 7-1: device descriptor read/64, error -71
+nov 06 06:33:39 DannyISyCo kernel: usb 7-1: device descriptor read/64, error -71
+nov 06 06:33:40 DannyISyCo kernel: usb 7-1: new full-speed USB device number 7 using xhci_hcd
+nov 06 06:33:40 DannyISyCo kernel: usb 7-1: Device not responding to setup address.
+nov 06 06:33:40 DannyISyCo kernel: usb 7-1: Device not responding to setup address.
+nov 06 06:33:40 DannyISyCo kernel: usb 7-1: device not accepting address 7, error -71
+nov 06 06:33:40 DannyISyCo kernel: usb 7-1: WARN: invalid context state for evaluate context command.
+nov 06 06:33:40 DannyISyCo kernel: usb 7-1: new full-speed USB device number 8 using xhci_hcd
+nov 06 06:33:40 DannyISyCo kernel: usb 7-1: Device not responding to setup address.
+nov 06 06:33:40 DannyISyCo kernel: usb 7-1: Device not responding to setup address.
+nov 06 06:33:41 DannyISyCo kernel: usb 7-1: device not accepting address 8, error -71
+nov 06 06:33:41 DannyISyCo kernel: usb 7-1: WARN: invalid context state for evaluate context command.
+
+$ ./mochic validate <copia congelada dbd65d1f>
+duros 0
+
+$ ./mochic inspect /media/danny/MEGAMOCHI/startup.avi (el archivo ya instalado, leido del volumen)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[exit 1]

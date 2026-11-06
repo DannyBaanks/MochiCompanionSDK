@@ -1,0 +1,51 @@
+{
+  "schema": "isyco-evidence-pack-v1",
+  "created_at": "2026-11-06T12:35:19Z",
+  "environment": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
+    "git_commit": "e318b57"
+  },
+  "command": "bash: sha256sum del volumen post-arranque + ls + mount + journalctl -k + validate congelado (ver stdout.raw.txt)",
+  "exit_code": 1,
+  "stdout": {
+    "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/boot_play_v0/stdout.raw.txt",
+    "relative": "evidence/boot_play_v0/stdout.raw.txt",
+    "sha256": "c73b22190c6609af47fc75c49fb09426b1bdfd5048ff6eb8c8127a40cc3649d8"
+  },
+  "artifacts": [
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/boot_play_v0/VERDICT.md",
+      "relative": "evidence/boot_play_v0/VERDICT.md",
+      "sha256": "644560a49c929be3561abc5c80365c096d6804d15ddc29d7df1d63599ada8a30"
+    }
+  ],
+  "claims": [
+    {
+      "text": "El Mochi reproduce en el slot de arranque un AVI que no vino del muxer de fabric si el contenedor cumple el perfil (operador: 'funciono perfecto', mismo archivo verificado por sha dbd65d1f antes del reinicio)",
+      "status": "CONDITIONAL_PASS"
+    },
+    {
+      "text": "La pantalla en blanco del intento anterior se debe a las desviaciones de contenedor y no a suggested_buf: el archivo que fallo tenia suggested_buf coherente (7719==7719)",
+      "status": "CONDITIONAL_PASS"
+    },
+    {
+      "text": "Tras el ciclo de energia el MSC del Mochi dejo de enumerar (-71, unable to enumerate USB device); recuperacion: apagar, desenchufar 60 s, reenchufar, encender con K2",
+      "status": "PASS"
+    },
+    {
+      "text": "Una grabacion con camara del arranque, que subira el claim 1 a PASS",
+      "status": "NOT_DEMONSTRATED"
+    },
+    {
+      "text": "Que el firmware acepte un startup.avi mono generado por mochic build",
+      "status": "NOT_DEMONSTRATED"
+    }
+  ],
+  "scope": "Un destino, un archivo, un ciclo de energia; cero escrituras en este pack",
+  "not_demonstrated": [
+    "observacion instrumental del arranque (falta video del operador)",
+    "startup.avi mono en el slot de arranque"
+  ]
+}

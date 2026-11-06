@@ -1,0 +1,4 @@
+# congelamiento de insumos (solo lectura de ~/Descargas y del backup local)
+cfa5044ab749b55d37b67c3450a4ebf492eff8ce55910757487c6c993c5cdb6d  1443076 B  mtime=2026-11-06T12:05:36Z  src=/home/danny/Descargas/startup.avi  congelado=evidence/foreign_startup_v0/input/startup__cfa5044a.avi
+4f7d6b4325acb5d309d0e66c6e409a7f62b2ea335cfd405725808e0914226db5  1439370 B  mtime=2026-11-06T12:00:32Z  src=/home/danny/Descargas/startupEJEMPLO.avi  congelado=evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi
+acb6afb9d8e9494dbba0ce7bfff39340fa38a6ac28584d6a3a62b0fdffb60cb2  1544598 B  mtime=2024-12-08T12:34:34Z  src=/home/danny/megamochi-backup/volume_files/startup.avi  congelado=evidence/foreign_startup_v0/input/startup__acb6afb9.avi

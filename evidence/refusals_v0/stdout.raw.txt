@@ -1,0 +1,566 @@
+# mutante: un registro 01wb declarado de 3000 B en lugar de 3200 B
+$ sha256 original / mutante
+77a9df099345f584edfb1c6f31d9972b19d617bd11fe9b0885e006486eef6601  build/demo-thinking.avi
+5942f22da0bef11437e8feb068fd4acaa435ddbef4dea2db92fe130989eecb7c  /tmp/mochi-refusals/mutante.avi
+$ mochic validate /tmp/mochi-refusals/mutante.avi
+[exit 1]
+{
+ "archivos": 1,
+ "duros": 5,
+ "invalidos": 1,
+ "reportes": [
+  {
+   "archivo": "/tmp/mochi-refusals/mutante.avi",
+   "duros": 5,
+   "hallazgos": [
+    {
+     "esperado": 121,
+     "mensaje": "el factory intercala 1 chunk de video y 1 de audio por frame, mas un chunk de audio vacio al final",
+     "observado": 146,
+     "regla": "movi.interleave",
+     "severidad": "hard"
+    },
+    {
+     "esperado": "vavavavavavavavavavavava",
+     "mensaje": "el patron de intercalado debe ser (video,audio)* + audio-vacio",
+     "observado": "va??????????????????????",
+     "regla": "movi.patron",
+     "severidad": "hard"
+    },
+    {
+     "esperado": [
+      3200
+     ],
+     "mensaje": "todo chunk de audio (salvo el ultimo) mide 3200 B en 9650/9650 casos",
+     "observado": [
+      3000,
+      3200
+     ],
+     "regla": "audio.quantum",
+     "severidad": "hard"
+    },
+    {
+     "esperado": 146,
+     "mensaje": "un entry idx1 por registro de movi",
+     "observado": 121,
+     "regla": "idx1.entries",
+     "severidad": "hard"
+    },
+    {
+     "esperado": 146,
+     "mensaje": "los offsets de idx1 no calzan con los registros de movi; el idx1 del archivo apunta a otro lado",
+     "observado": 120,
+     "regla": "idx1.alineado",
+     "severidad": "hard"
+    },
+    {
+     "esperado": 745702.0,
+     "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+     "observado": 797263.0,
+     "regla": "bitrate.real",
+     "severidad": "soft"
+    }
+   ],
+   "sha256": "5942f22da0bef11437e8feb068fd4acaa435ddbef4dea2db92fe130989eecb7c",
+   "suaves": 1,
+   "valido": false
+  }
+ ]
+}
+
+$ mochic validate "/home/danny/Development/ISyCo Git/MochiCompanionSDK/build/demo-thinking.avi"
+[exit 0]
+{
+ "archivos": 1,
+ "duros": 0,
+ "invalidos": 0,
+ "reportes": [
+  {
+   "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/build/demo-thinking.avi",
+   "duros": 0,
+   "hallazgos": [
+    {
+     "esperado": 745702.0,
+     "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+     "observado": 797263.0,
+     "regla": "bitrate.real",
+     "severidad": "soft"
+    }
+   ],
+   "sha256": "77a9df099345f584edfb1c6f31d9972b19d617bd11fe9b0885e006486eef6601",
+   "suaves": 1,
+   "valido": true
+  }
+ ]
+}
+
+$ mochic spec --pack "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat" --fotogramas 2 -o /tmp/mochi-refusals/s.json
+[exit 1]
+{"error": "AviError", "mensaje": "fotogramas=2 fuera de 15..2000 (el corpus factory va de 15 a 501; el tope alto es politica, no medida)", "codigo_salida": 1}
+
+$ mochic emit state --inbox /tmp/mochi-refusals/in.jsonl --valor flotante
+[exit 1]
+{"error": "BridgeError", "mensaje": "value debe estar en ['error', 'hidden', 'idle', 'success', 'thinking', 'waiting', 'working']", "codigo_salida": 1}
+
+$ test -e "/tmp/mochi-refusals/in.jsonl" && echo EXISTE || echo "NO EXISTE: el evento invalido no se escribio"
+[exit 0]
+NO EXISTE: el evento invalido no se escribio
+
+$ mochic plan /tmp/mochi-fake-vol
+[exit 2]
+{"error": "UsageError", "mensaje": "no hay nada que planear: pase un spec o --par ORIGEN DESTINO", "codigo_salida": 2}
+
+$ mochic playlist
+[exit 2]
+usage: mochic playlist [-h] [--json] [--texto] volumen
+mochic playlist: error: the following arguments are required: volumen
+
+$ mochic playlist /tmp/mochi-fake-vol
+[exit 0]
+{
+ "archivos_fuera_de_playlist": [],
+ "avisos": [
+  "agregar entradas nuevas no esta demostrado que el firmware lo acepte"
+ ],
+ "bytes": 7936,
+ "entradas": 62,
+ "playlist": "/tmp/mochi-fake-vol/playlist.lst",
+ "sha256": "af6de1fc47c211834a21dff5cadecf8c2d8776bfacd6f1fea678b9a8bc4d1bd8",
+ "slots": [
+  {
+   "bytes": 1486654,
+   "existe": true,
+   "i": 0,
+   "nombre": "Akward_Laugh.avi"
+  },
+  {
+   "bytes": 1214564,
+   "existe": true,
+   "i": 1,
+   "nombre": "Angry.avi"
+  },
+  {
+   "bytes": 1520328,
+   "existe": true,
+   "i": 2,
+   "nombre": "Banana.avi"
+  },
+  {
+   "bytes": 1487106,
+   "existe": true,
+   "i": 3,
+   "nombre": "Blade.avi"
+  },
+  {
+   "bytes": 126810,
+   "existe": true,
+   "i": 4,
+   "nombre": "Blink.avi"
+  },
+  {
+   "bytes": 349654,
+   "existe": true,
+   "i": 5,
+   "nombre": "Braking.avi"
+  },
+  {
+   "bytes": 1374274,
+   "existe": true,
+   "i": 6,
+   "nombre": "Crying.avi"
+  },
+  {
+   "bytes": 1671296,
+   "existe": true,
+   "i": 7,
+   "nombre": "Crying_Smile.avi"
+  },
+  {
+   "bytes": 1972262,
+   "existe": true,
+   "i": 8,
+   "nombre": "Cursed_Smile.avi"
+  },
+  {
+   "bytes": 1614918,
+   "existe": true,
+   "i": 9,
+   "nombre": "DasaiBreak.avi"
+  },
+  {
+   "bytes": 1670788,
+   "existe": true,
+   "i": 10,
+   "nombre": "DemonSlayerNezuko.avi"
+  },
+  {
+   "bytes": 1827308,
+   "existe": true,
+   "i": 11,
+   "nombre": "Distracted.avi"
+  },
+  {
+   "bytes": 1489370,
+   "existe": true,
+   "i": 12,
+   "nombre": "Dumb_Love.avi"
+  },
+  {
+   "bytes": 1686274,
+   "existe": true,
+   "i": 13,
+   "nombre": "Glitch.avi"
+  },
+  {
+   "bytes": 862164,
+   "existe": true,
+   "i": 14,
+   "nombre": "HadokenKit.avi"
+  },
+  {
+   "bytes": 859400,
+   "existe": true,
+   "i": 15,
+   "nombre": "HadokenMiss.avi"
+  },
+  {
+   "bytes": 4421992,
+   "existe": true,
+   "i": 16,
+   "nombre": "HeadLights.avi"
+  },
+  {
+   "bytes": 2277376,
+   "existe": true,
+   "i": 17,
+   "nombre": "Jam_Cookie.avi"
+  },
+  {
+   "bytes": 2154274,
+   "existe": true,
+   "i": 18,
+   "nombre": "Keep It UP.avi"
+  },
+  {
+   "bytes": 1979442,
+   "existe": true,
+   "i": 19,
+   "nombre": "LB_Burn_Smoke.avi"
+  },
+  {
+   "bytes": 3056220,
+   "existe": true,
+   "i": 20,
+   "nombre": "LB_Gold_Wheel.avi"
+  },
+  {
+   "bytes": 1716028,
+   "existe": true,
+   "i": 21,
+   "nombre": "LB_Japan_Flag.avi"
+  },
+  {
+   "bytes": 531390,
+   "existe": true,
+   "i": 22,
+   "nombre": "Look Down.avi"
+  },
+  {
+   "bytes": 379594,
+   "existe": true,
+   "i": 23,
+   "nombre": "Look Left.avi"
+  },
+  {
+   "bytes": 379294,
+   "existe": true,
+   "i": 24,
+   "nombre": "Look Right.avi"
+  },
+  {
+   "bytes": 500624,
+   "existe": true,
+   "i": 25,
+   "nombre": "Look Up.avi"
+  },
+  {
+   "bytes": 1204960,
+   "existe": true,
+   "i": 26,
+   "nombre": "Love.avi"
+  },
+  {
+   "bytes": 2015096,
+   "existe": true,
+   "i": 27,
+   "nombre": "M03_Angry_Flames.avi"
+  },
+  {
+   "bytes": 2971404,
+   "existe": true,
+   "i": 28,
+   "nombre": "M03_Bee.avi"
+  },
+  {
+   "bytes": 2829598,
+   "existe": true,
+   "i": 29,
+   "nombre": "M03_Equip.avi"
+  },
+  {
+   "bytes": 2579212,
+   "existe": true,
+   "i": 30,
+   "nombre": "M03_Mecha_Doc.avi"
+  },
+  {
+   "bytes": 3728510,
+   "existe": true,
+   "i": 31,
+   "nombre": "M03_Pinky.avi"
+  },
+  {
+   "bytes": 3599344,
+   "existe": true,
+   "i": 32,
+   "nombre": "M03_Rearlight_Rain.avi"
+  },
+  {
+   "bytes": 1375798,
+   "existe": true,
+   "i": 33,
+   "nombre": "M03_RGB_Base.avi"
+  },
+  {
+   "bytes": 3039508,
+   "existe": true,
+   "i": 34,
+   "nombre": "M03_Road_Rage.avi"
+  },
+  {
+   "bytes": 2585910,
+   "existe": true,
+   "i": 35,
+   "nombre": "M03_Rotation.avi"
+  },
+  {
+   "bytes": 2447832,
+   "existe": true,
+   "i": 36,
+   "nombre": "M03_Shift_Channels.avi"
+  },
+  {
+   "bytes": 1587430,
+   "existe": true,
+   "i": 37,
+   "nombre": "M03_Snot.avi"
+  },
+  {
+   "bytes": 2393182,
+   "existe": true,
+   "i": 38,
+   "nombre": "M03_SprayPaint.avi"
+  },
+  {
+   "bytes": 2705532,
+   "existe": true,
+   "i": 39,
+   "nombre": "M03_Sushi.avi"
+  },
+  {
+   "bytes": 2643714,
+   "existe": true,
+   "i": 40,
+   "nombre": "MusicFace.avi"
+  },
+  {
+   "bytes": 3293538,
+   "existe": true,
+   "i": 41,
+   "nombre": "Neon Sign.avi"
+  },
+  {
+   "bytes": 1379448,
+   "existe": true,
+   "i": 42,
+   "nombre": "Nose_Fire.avi"
+  },
+  {
+   "bytes": 1091380,
+   "existe": true,
+   "i": 43,
+   "nombre": "Nose_Smoke.avi"
+  },
+  {
+   "bytes": 1961050,
+   "existe": true,
+   "i": 44,
+   "nombre": "Police.avi"
+  },
+  {
+   "bytes": 2466818,
+   "existe": true,
+   "i": 45,
+   "nombre": "Pong.avi"
+  },
+  {
+   "bytes": 1667492,
+   "existe": true,
+   "i": 46,
+   "nombre": "Pretentious.avi"
+  },
+  {
+   "bytes": 2351126,
+   "existe": true,
+   "i": 47,
+   "nombre": "Rainbow_Face.avi"
+  },
+  {
+   "bytes": 935390,
+   "existe": true,
+   "i": 48,
+   "nombre": "Raspberry.avi"
+  },
+  {
+   "bytes": 3494602,
+   "existe": true,
+   "i": 49,
+   "nombre": "Revs.avi"
+  },
+  {
+   "bytes": 1576878,
+   "existe": true,
+   "i": 50,
+   "nombre": "Sakura.avi"
+  },
+  {
+   "bytes": 2122376,
+   "existe": true,
+   "i": 51,
+   "nombre": "Sleepy.avi"
+  },
+  {
+   "bytes": 595704,
+   "existe": true,
+   "i": 52,
+   "nombre": "Smile.avi"
+  },
+  {
+   "bytes": 1488998,
+   "existe": true,
+   "i": 53,
+   "nombre": "SmirkingLaugh.avi"
+  },
+  {
+   "bytes": 753946,
+   "existe": true,
+   "i": 54,
+   "nombre": "Sneeze.avi"
+  },
+  {
+   "bytes": 458010,
+   "existe": true,
+   "i": 55,
+   "nombre": "Squint.avi"
+  },
+  {
+   "bytes": 3391820,
+   "existe": true,
+   "i": 56,
+   "nombre": "Stars.avi"
+  },
+  {
+   "bytes": 1738730,
+   "existe": true,
+   "i": 57,
+   "nombre": "Tsurikawa_Square.avi"
+  },
+  {
+   "bytes": 2702084,
+   "existe": true,
+   "i": 58,
+   "nombre": "Turbos.avi"
+  },
+  {
+   "bytes": 1147162,
+   "existe": true,
+   "i": 59,
+   "nombre": "UpsideDown.avi"
+  },
+  {
+   "bytes": 813936,
+   "existe": true,
+   "i": 60,
+   "nombre": "UwU.avi"
+  },
+  {
+   "bytes": 1703534,
+   "existe": true,
+   "i": 61,
+   "nombre": "Yawn.avi"
+  }
+ ]
+}
+
+$ mochic map --mostrar
+[exit 0]
+{
+ "drag": "UpsideDown.avi",
+ "error": "Crying.avi",
+ "idle": "Blink.avi",
+ "running-left": "Look Left.avi",
+ "running-right": "Look Right.avi",
+ "success": "Smile.avi",
+ "thinking": "Squint.avi",
+ "waiting": "Sleepy.avi",
+ "working": "Revs.avi"
+}
+
+$ mochic plan /tmp/mochi-fake-vol --par build/demo-thinking.avi video/NoExiste.avi
+[exit 5]
+{"error": "RefuseError", "mensaje": "el destino 'video/NoExiste.avi' no existe en el volumen: agregar entradas nuevas al playlist NO esta demostrado", "codigo_salida": 5}
+
+$ mochic spec --pack "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat" --slot NoExiste.avi --id rehusa -o /tmp/mochi-refusals/spec-rehusa.json
+[exit 0]
+{
+ "escrito": "/tmp/mochi-refusals/spec-rehusa.json",
+ "spec": "rehusa"
+}
+
+$ mochic plan /tmp/mochi-fake-vol /tmp/mochi-refusals/spec-rehusa.json
+[exit 5]
+{"error": "RefuseError", "mensaje": "el destino 'video/NoExiste.avi' no existe en el volumen: agregar entradas nuevas al playlist NO esta demostrado", "codigo_salida": 5}
+
+$ mochic plan /tmp/mochi-fake-vol --par build/demo-thinking.avi video/Squint.avi --salida /tmp/mochi-refusals/plan-ok.json
+[exit 0]
+{
+ "accion": "mochi-deploy-v1",
+ "advertencia": "Escribir en el volumen cambia el estado del dispositivo. Este plan no ha escrito nada.",
+ "comando_siguiente": "mochic apply /tmp/mochi-refusals/plan-ok.json --token e10a6754fc67",
+ "creado_utc": "2026-11-06T11:45:05Z",
+ "operaciones": [
+  {
+   "destino": "video/Squint.avi",
+   "destino_absoluto": "/tmp/mochi-fake-vol/video/Squint.avi",
+   "destino_bytes_actual": 458010,
+   "destino_sha256_actual": "eceb82700b1fbf2d21111cec06e2d9c7deaf4c84708c87aca1a6c348ad0eec9e",
+   "origen": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/build/demo-thinking.avi",
+   "origen_bytes": 1594526,
+   "origen_sha256": "77a9df099345f584edfb1c6f31d9972b19d617bd11fe9b0885e006486eef6601",
+   "suaves": [
+    {
+     "esperado": 745702.0,
+     "mensaje": "por encima del mayor bitrate observado en factory (techo real no medido)",
+     "observado": 797263.0,
+     "regla": "bitrate.real",
+     "severidad": "soft"
+    }
+   ]
+  }
+ ],
+ "plan_archivo": "/tmp/mochi-refusals/plan-ok.json",
+ "token": "e10a6754fc67",
+ "total_bytes": 1594526,
+ "volumen": "/tmp/mochi-fake-vol"
+}
+

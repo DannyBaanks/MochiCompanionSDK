@@ -1,0 +1,178 @@
+{
+  "schema": "isyco-evidence-pack-v1",
+  "created_at": "2026-11-06T13:06:27Z",
+  "environment": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
+    "git_commit": "e318b57"
+  },
+  "command": "python3 tools/capture_cli.py",
+  "exit_code": 0,
+  "stdout": {
+    "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/stdout.raw.txt",
+    "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/stdout.raw.txt",
+    "sha256": "59dbff2aede581a685e617e3f2b5517f700c4bd4fec2be054e46815f1849dca6"
+  },
+  "artifacts": [
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/demo-thinking.generated.avi",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/demo-thinking.generated.avi",
+      "sha256": "77a9df099345f584edfb1c6f31d9972b19d617bd11fe9b0885e006486eef6601"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/capture_cli.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/capture_cli.py",
+      "sha256": "7975947652ae09ec30e7cebd7c334d307e4ca3b6ad7bf59f6ca1764ae0f1270d"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/cli.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/cli.py",
+      "sha256": "6c4baef112a7da82808590db470c7da3fc8f080a12f44395e821add4eb052b0c"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/bridge.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/bridge.py",
+      "sha256": "cd160104dc4d637b13b86318fc7e2b4a5545bbcdb877c41a81ac3bf7bcb71e00"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/render.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/render.py",
+      "sha256": "d14d996f612c370a5b13b47f9b6dd174dfaed4971d11f294d7fca153011b74d0"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/spec.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/spec.py",
+      "sha256": "fc72c3fd2300ef53171713da3bdd13490c805c3a40ea58ba90acea156b31d3a4"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/deploy.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/deploy.py",
+      "sha256": "704fce8cc19d95710b4f8401a449fbad0d2388de0cf5faeadf5ef22df7621391"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/writer.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/writer.py",
+      "sha256": "5b27ddbbe001d3cd05faaad8aad8b6f0d3a7fb9daaa74a09a80687a5da467d2a"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/container.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/container.py",
+      "sha256": "c20ff91895adb2ab7e98a95c2bbe8af177abb344efa0144ad94b9da6d8e68cbd"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/profile.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/profile.py",
+      "sha256": "729e59938e77749f71497ff701596a38451052b11db5f2518e9c585d19f93b82"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/playlist.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/playlist.py",
+      "sha256": "7abec8c342f953c8bcb789ccdf8b7e15e7272a4893562c1673f4ff83a5df6c46"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-factory-v1.json",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-factory-v1.json",
+      "sha256": "e3ef250444f57706c59f044126800db304f92e1c2c9146ba8488f15f33aff21e"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/examples/demo-thinking.json",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/examples/demo-thinking.json",
+      "sha256": "49a97c7d63cf29f651bf0637a4d53f92999e078d399836a007d90a74b5203416"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/GUIA.md",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/GUIA.md",
+      "sha256": "0cdb1b820523be2c567283fb8eb7d5ed27bc505e70748b30d34967d8e7be6c4f"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/README.md",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/README.md",
+      "sha256": "a0050371175a48fdd99acd5a749f1df987266ce8413fb6260dc1f27ae02bdebc"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/AGENTS.md",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/AGENTS.md",
+      "sha256": "aca319f4cfc876ee884163cf5e5c0fa1d6c7b5411d8f86e45142284c89ab9134"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tests/test_spec_render_bridge.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tests/test_spec_render_bridge.py",
+      "sha256": "e34a172ef5d37ee6de0d5c648f2e1397385f7e768037a3e1fce828b731b8ca20"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/VERDICT.md",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/VERDICT.md",
+      "sha256": "a34b690107659f0766d517fb22b1460b5988577c43d083e44f01a0cd52d36034"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/CORRECCIONES.md",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/cli_v0/CORRECCIONES.md",
+      "sha256": "8838635d4db90cb8548400a1f8fa476526a282d8d7d7db4221e3fa09bcfad69b"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Los 26 bloques documentados en GUIA.md fueron ejecutados por tools/capture_cli.py; crudo y exit codes en stdout.raw.txt (24x0, un 4 por token malo, un 3 por origen inexistente)",
+      "status": "PASS"
+    },
+    {
+      "text": "spec->build->validate->plan->apply->rollback corre sobre un volumen falso en /tmp sin tocar el dispositivo",
+      "status": "PASS"
+    },
+    {
+      "text": "apply con token incorrecto devuelve codigo 4 y no escribe; apply con el token del plan devuelve 0 y deja journal",
+      "status": "PASS"
+    },
+    {
+      "text": "plan de un origen inexistente devuelve codigo 3 (crudo aqui); el rechazo a destinos fuera del playlist (codigo 5) esta capturado en evidence/refusals_v0",
+      "status": "PASS"
+    },
+    {
+      "text": "watch consume eventos companion-event-v1, renderiza, planifica y reporta escribio_volumen=false; la segunda pasada devuelve eventos=0 por el cursor de bytes",
+      "status": "PASS"
+    },
+    {
+      "text": "En el crudo sellado: 180 pruebas pasan, incluidos 62 round-trips byte-exactos, el control positivo 0/62 rechazados, 10 mutantes y el control de contrato contra validate_event de Companion (hoy la suite es 182; ver claim 12 y CORRECCIONES.md)",
+      "status": "PASS"
+    },
+    {
+      "text": "render.resample_to_30 tenia un error de unidades (ms vs s) que producia video de un solo frame; corregido y cubierto por un test que exige 4 colores y conteos 4/6/3/9",
+      "status": "PASS"
+    },
+    {
+      "text": "el render es determinista: dos capturas del mismo spec dieron el mismo sha256 de AVI (77a9df099345)",
+      "status": "PASS"
+    },
+    {
+      "text": "el firmware reproduce un AVI generado por este SDK",
+      "status": "NOT_DEMONSTRATED"
+    },
+    {
+      "text": "que el slot reemplazado se vea ante el estimulo esperado (MOCHI-REA-03 abierto)",
+      "status": "NOT_DEMONSTRATED"
+    },
+    {
+      "text": "los codigos contractuales 1, 2 y 5 no aparecen en este crudo: quedan observados en el pack hermano evidence/refusals_v0",
+      "status": "PASS"
+    },
+    {
+      "text": "El crudo de este pack fue reescrito a las 10:59Z por una segunda corrida del capturer, seis minutos despues del sello de las 10:53Z: el manifest anterior hasheaba stdout 845ebc48 (24 bloques) y el disco tenia 59dbff2a (26 bloques). Hoy guard_out() lo niega y dos pruebas nuevas (180->182) lo cubren; la diferencia 180/182 queda documentada, no re-capturada",
+      "status": "PASS"
+    },
+    {
+      "text": "deploy.apply y rollback endurecidos: dos escrituras al mismo destino conservan backups distinguibles y rollback se niega si el backup no calza con su sha_previo; controles en /tmp, suite 182->184",
+      "status": "PASS"
+    },
+    {
+      "text": "evidence/our_build_v1 resuelve la claim 'el firmware reproduce un AVI generado por este SDK': byte-identity y determinismo PASS, reproduccion en el slot de arranque CONDITIONAL_PASS (observado en pantalla, sin captura de camara sellada)",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Superficie CLI mochic v0.1.0, puente de eventos Companion y ciclo de despliegue, verificados contra el corpus factory y volumenes falsos en /tmp",
+  "not_demonstrated": [
+    "disparo fisico de cada animacion",
+    "playlist con numero de entradas distinto de 62",
+    "techo real de bitrate o de bytes por frame"
+  ]
+}

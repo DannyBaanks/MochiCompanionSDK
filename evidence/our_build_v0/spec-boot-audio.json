@@ -1,0 +1,23 @@
+{
+ "spec": "mochi-anim-v1",
+ "id": "boot-nuestro-v2",
+ "nombre": "idle -> startup.avi",
+ "fuente": {
+  "tipo": "companion_pack",
+  "pack": "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat",
+  "animacion": "idle",
+  "fotogramas": 111,
+  "fondo": [
+   8,
+   6,
+   14
+  ],
+  "budget_bytes_por_frame": 12000,
+  "resample": "lanczos",
+  "audio": "build/boot-chime.wav"
+ },
+ "destino": {
+  "nombre_video": "startup.avi",
+  "salida": "build/boot-nuestro-v2.avi"
+ }
+}

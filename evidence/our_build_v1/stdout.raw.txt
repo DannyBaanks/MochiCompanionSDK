@@ -1,0 +1,256 @@
+$ date -u +%Y-%m-%dT%H:%M:%SZ
+[exit 0]
+2026-11-06T13:01:34Z
+
+$ grep sda1 /proc/mounts
+[exit 1]
+
+(rc 1 = el volumen NO esta montado ahora mismo)
+
+$ sha256sum /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_86f15586.avi /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/Blink__nuestro_541c29e4.avi /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_con_campana_e7b85961.avi
+[exit 0]
+86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7  /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_86f15586.avi
+541c29e4c582250ea4d870f9322b272f227efbc8255e72afad37b220a7f9d5ae  /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/Blink__nuestro_541c29e4.avi
+e7b85961ba95a3e9c722add92d6cdc4dc079d8317d96da8b1b4f02527c013582  /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_con_campana_e7b85961.avi
+
+$ sha256sum /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/boot-chime.wav build/boot-chime.wav
+[exit 0]
+442e4087cf0731d3d934dbafc39a86881c1afadbb4348b08e75ef7769119160a  /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/boot-chime.wav
+442e4087cf0731d3d934dbafc39a86881c1afadbb4348b08e75ef7769119160a  build/boot-chime.wav
+(el re-corrido del spec con audio solo es comparable si estos dos shas calzan)
+
+$ # identidad entre lo instalado (journal) y lo congelado (pack)
+journal-boot.json        destino startup.avi      sha_nuevo 86f1558614b3e87d  input_congelado 86f1558614b3e87d  IDENTICO
+journal-video.json       destino video/Blink.avi  sha_nuevo 541c29e4c582250e  input_congelado 541c29e4c582250e  IDENTICO
+journal-boot-audio.json  destino startup.avi      sha_nuevo e7b85961ba95a3e9  input_congelado e7b85961ba95a3e9  IDENTICO
+
+$ # integridad de los backups referenciados por cada journal (fuera del repo; LECTURA)
+journal-boot.json        sha_previo dbd65d1fdf1ceafc  backup 86f1558614b3e87d  COLISION: ya no es el estado previo
+                                         /home/danny/megamochi-backup/deploy_2026-11-06_ours/startup.avi
+journal-video.json       sha_previo 087788a2233cba50  backup 087788a2233cba50  OK
+                                         /home/danny/megamochi-backup/deploy_2026-11-06_ours/Blink.avi
+journal-boot-audio.json  sha_previo 86f1558614b3e87d  backup 86f1558614b3e87d  OK
+                                         /home/danny/megamochi-backup/deploy_2026-11-06_ours/startup.avi
+
+$ ./mochic validate /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_86f15586.avi
+[exit 0]
+{
+ "archivos": 1,
+ "duros": 0,
+ "invalidos": 0,
+ "reportes": [
+  {
+   "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_86f15586.avi",
+   "duros": 0,
+   "hallazgos": [],
+   "sha256": "86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7",
+   "suaves": 0,
+   "valido": true
+  }
+ ]
+}
+
+$ ./mochic validate /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/Blink__nuestro_541c29e4.avi
+[exit 0]
+{
+ "archivos": 1,
+ "duros": 0,
+ "invalidos": 0,
+ "reportes": [
+  {
+   "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/Blink__nuestro_541c29e4.avi",
+   "duros": 0,
+   "hallazgos": [],
+   "sha256": "541c29e4c582250ea4d870f9322b272f227efbc8255e72afad37b220a7f9d5ae",
+   "suaves": 0,
+   "valido": true
+  }
+ ]
+}
+
+$ ./mochic validate /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_con_campana_e7b85961.avi
+[exit 0]
+{
+ "archivos": 1,
+ "duros": 0,
+ "invalidos": 0,
+ "reportes": [
+  {
+   "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v0/input/startup__nuestro_con_campana_e7b85961.avi",
+   "duros": 0,
+   "hallazgos": [],
+   "sha256": "e7b85961ba95a3e9c722add92d6cdc4dc079d8317d96da8b1b4f02527c013582",
+   "suaves": 0,
+   "valido": true
+  }
+ ]
+}
+
+$ ./mochic build /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/spec-boot.json
+[exit 0]
+{
+ "animacion": "idle",
+ "budget_por_frame": 12000,
+ "bytes_avi": 1691426,
+ "duracion_s": 3.7,
+ "frame_bytes": {
+  "max": 11937,
+  "min": 11850,
+  "total": 1320810
+ },
+ "frames": 111,
+ "jpeg_quality": {
+  "max": 73,
+  "mediana": 67,
+  "min": 66
+ },
+ "nombre_video_destino": "startup.avi",
+ "origen": "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat/malbolgato-idle.gif",
+ "ruta": "build/boot-nuestro-v1.avi",
+ "sha256": "86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7",
+ "siguiente_paso": "mochic plan VOLUMEN /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/spec-boot.json",
+ "spec_id": "boot-nuestro-v1",
+ "validacion": {
+  "duros": 0,
+  "hallazgos": [],
+  "suaves": 0,
+  "valido": true
+ }
+}
+(re-corrida de spec-boot.json: el sha256 debe igualar el sha_nuevo de journal-boot.json)
+
+$ ./mochic build /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/spec-video.json
+[exit 0]
+{
+ "animacion": "idle",
+ "budget_por_frame": 12000,
+ "bytes_avi": 237092,
+ "duracion_s": 0.5,
+ "frame_bytes": {
+  "max": 11937,
+  "min": 11850,
+  "total": 178346
+ },
+ "frames": 15,
+ "jpeg_quality": {
+  "max": 73,
+  "mediana": 72,
+  "min": 67
+ },
+ "nombre_video_destino": "Blink.avi",
+ "origen": "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat/malbolgato-idle.gif",
+ "ruta": "build/video-nuestro-v1.avi",
+ "sha256": "541c29e4c582250ea4d870f9322b272f227efbc8255e72afad37b220a7f9d5ae",
+ "siguiente_paso": "mochic plan VOLUMEN /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/spec-video.json",
+ "spec_id": "video-nuestro-v1",
+ "validacion": {
+  "duros": 0,
+  "hallazgos": [],
+  "suaves": 0,
+  "valido": true
+ }
+}
+(re-corrida de spec-video.json: el sha256 debe igualar el sha_nuevo de journal-video.json)
+
+$ ./mochic build /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/spec-boot-audio.json
+[exit 0]
+{
+ "animacion": "idle",
+ "budget_por_frame": 12000,
+ "bytes_avi": 1691426,
+ "duracion_s": 3.7,
+ "frame_bytes": {
+  "max": 11937,
+  "min": 11850,
+  "total": 1320810
+ },
+ "frames": 111,
+ "jpeg_quality": {
+  "max": 73,
+  "mediana": 67,
+  "min": 66
+ },
+ "nombre_video_destino": "startup.avi",
+ "origen": "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat/malbolgato-idle.gif",
+ "ruta": "build/boot-nuestro-v2.avi",
+ "sha256": "e7b85961ba95a3e9c722add92d6cdc4dc079d8317d96da8b1b4f02527c013582",
+ "siguiente_paso": "mochic plan VOLUMEN /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/our_build_v1/spec-boot-audio.json",
+ "spec_id": "boot-nuestro-v2",
+ "validacion": {
+  "duros": 0,
+  "hallazgos": [],
+  "suaves": 0,
+  "valido": true
+ }
+}
+(re-corrida de spec-boot-audio.json: el sha256 debe igualar el sha_nuevo de journal-boot-audio.json)
+
+$ python3 -m pytest tests/ -q
+[exit 0]
+........................................................................ [ 39%]
+........................................................................ [ 78%]
+........................................                                 [100%]
+184 passed in 2.72s
+
+$ ./mochic profile --control --texto
+[exit 0]
+perfil                   mochi-factory-v1
+fuente                   /home/danny/megamochi-backup/volume_files/video
+corpus_sha256            0c05fea119d21611cb938b6485ddf093392ea4f34d4442b20bc8baa9b1c1d338
+metodo                   python3 tools/measure_corpus.py
+herramienta              mochisdk/container.py (RIFF puro, sin ffmpeg)
+hechos                   n_archivos               62
+bytes_corpus             113450456
+fps                        - 30.0
+dims                       -   - 480   - 480
+handler_video              - MJPG
+audio_format               - {"avg_bytes_per_sec": 96000, "bits_per_sample": 16, "block_align": 2, "channels": 1, "format_tag": 1, "kind": "WAVEFORMATEX", "samples_per_sec": 48000}
+interleave_head          vavavavavava             62
+audio_total_eq_3200_x_video true                     62
+blueprint_unicas         1
+payloads_constantes      RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#1 1c16777aa32c722e
+RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#1 399030953c7e736d
+RIFF[AVI ]/LIST[hdrl]/LIST[strl]/vprp#1 a29ef1b0189bfc66
+RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#2 157b4d12044c8160
+RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#2 3931e73d9cca98f1
+RIFF[AVI ]/LIST[hdrl]/JUNK#1 75975481f8e1fd5d
+RIFF[AVI ]/LIST[INFO]/ISFT#1 aa5bcdaf89493344
+RIFF[AVI ]/JUNK#1        5817bc65840cf706
+max_frame_bytes_across_corpus n                        62
+min                      5054
+max                      31893
+mean                     13009.645
+median                   11190
+p95                      23527
+p99                      25632
+actual_bytes_per_sec     n                        62
+min                      214692.2
+max                      745702.0
+mean                     356178.994
+median                   321290.5
+p95                      559418.7
+p99                      651154.3
+duration_s               n                        62
+min                      0.5
+max                      16.7
+mean                     5.188
+median                   4.966667
+p95                      10.5
+p99                      10.633333
+suggested_buf_eq_max_frame true                     62
+jpeg_sof_dims              -   - 480   - 480
+jpeg_encoder_comment       - Lavc61.19.100
+idx1_full_match          62
+techo_bitrate            declarado_max            121000
+declarado_min            121000
+real_max                 745702.0
+frame_max_absoluto       31893
+audio_bytes_por_frame      - 0
+  - 3200
+nota                     El techo que importa para generar assets nuevos es el maximo de bytes por frame y el max_bytes_per_sec declarados por los archivos que el firmware ya reproduce.
+control_positivo         archivos                 62
+rechazados               0
+esperado                 0
+lista_rechazados         
+veredicto                PASS
+motivo                   un asset factory rechazado implica regla mala, no asset malo

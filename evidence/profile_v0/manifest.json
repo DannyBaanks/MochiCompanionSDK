@@ -1,0 +1,101 @@
+{
+  "schema": "isyco-evidence-pack-v1",
+  "created_at": "2026-11-06T09:54:19Z",
+  "environment": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
+    "git_commit": "e318b57"
+  },
+  "command": "python3 tools/measure_corpus.py && python3 -m pytest tests/ -q && control round-trip 62/62",
+  "exit_code": 0,
+  "stdout": {
+    "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/profile_v0/stdout.raw.txt",
+    "relative": "evidence/profile_v0/stdout.raw.txt",
+    "sha256": "27ecddc85f781b65203829a4a31c365754ae97bac7a75b20301be9c9528cd8d9"
+  },
+  "artifacts": [
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-factory-v1.json",
+      "relative": "profiles/mochi-factory-v1.json",
+      "sha256": "2cc8d9bee957f142c7406b7bd989dbbb771baa7e06c2cd2fc1a681a0925aabf2"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-header-v1.json",
+      "relative": "profiles/mochi-header-v1.json",
+      "sha256": "7a26b14a0a09af8081f9e3807818c61683dafbe8313fd1229c489bea2b8cc9ad"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/measure_corpus.py",
+      "relative": "tools/measure_corpus.py",
+      "sha256": "d7a85bd58d7aae5ca2d5523504ccefb020937ee3bd8c8dd0fecd3b0e0ad6c584"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/container.py",
+      "relative": "mochisdk/container.py",
+      "sha256": "73c43f5d37893ddb0a66ee5c55753044f91a5569eb173b32fb16d13636256f92"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/writer.py",
+      "relative": "mochisdk/writer.py",
+      "sha256": "5b27ddbbe001d3cd05faaad8aad8b6f0d3a7fb9daaa74a09a80687a5da467d2a"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tests/test_container_writer.py",
+      "relative": "tests/test_container_writer.py",
+      "sha256": "443a873da4954780c55aa7c65cdeef3c60240d67ade0afb92d0114c5a509a4b1"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Blueprint de cabecera (secuencia de rutas RIFF con el movi colapsado) identico en 62/62 archivos factory: blueprint_unicas=1",
+      "status": "PASS"
+    },
+    {
+      "text": "8 payloads de chunk son byte-constantes en los 62 archivos: strf video, strf audio, JUNK 4120 x2, vprp 68, JUNK hdrl 260, ISFT, JUNK raiz 1016. El writer los copia y solo recalcula avih/strh/idx1",
+      "status": "PASS"
+    },
+    {
+      "text": "Cuantizado de audio confirmado: 3200 B por frame de video, 9650 chunks llenos + 62 chunks de tamano 0 (uno al final de cada archivo); audio_total == 3200*N en 62/62",
+      "status": "PASS"
+    },
+    {
+      "text": "strh de 56 bytes con rcFrame empaquetado como 4 x int16 (el estandar AVI usa 64 con LONGs), y vprp de 68 bytes presente solo en el stream de video",
+      "status": "PASS"
+    },
+    {
+      "text": "max_bytes_per_sec = 121000 es CONSTANTE en los 62 archivos mientras el bitrate real llega a 745702 B/s: ese campo es un placeholder del muxer, no el techo del dispositivo. Usarlo como limite rechazaria todos los assets factory",
+      "status": "FAIL"
+    },
+    {
+      "text": "Envelope real observado que el firmware ya reproduce: hasta 745702 B/s y hasta 31893 B por frame JPEG (480x480), 15..501 frames, 0.5..16.7 s",
+      "status": "PASS"
+    },
+    {
+      "text": "MJPEG verificado con caminata correcta de segmentos: SOI+EOI+SOF0 en los 9650 frames, precision 8 bits, submuestreo 4:2:0, dimensiones 480x480 en 100 por ciento",
+      "status": "PASS"
+    },
+    {
+      "text": "El escaner JPEG de la primera pasada leia la longitud de segmento en little-endian (es big-endian) y reportaba 0/9650 frames con SOF. Falso negativo propio, corregido y re-medido antes de sellar",
+      "status": "SUPERSEDED"
+    },
+    {
+      "text": "Los assets factory estan multiplexados con libavformat 61.7.100 y codificados con libavcodec 61.19.100 (ffmpeg 7.0). El ffmpeg instalado aqui es 6.1.1 (Lavf 60.x): NO es la misma version, por eso el writer es propio y no una llamada a ffmpeg",
+      "status": "PASS"
+    },
+    {
+      "text": "Control positivo del muxer: build_avi() reproduce byte a byte los 62 archivos factory a partir de sus frames y su PCM (62/62)",
+      "status": "PASS"
+    },
+    {
+      "text": "71 tests pasan, incluido round-trip byte-exacto parametrizado sobre los 62 archivos y rechazos de audio fuera de quantum",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Medida pasiva sobre las copias locales de los 62 videos factory (~/megamochi-backup/volume_files/video). Cero lecturas y cero escrituras al dispositivo. Este pack fija los unicos numeros que autorizan reglas de validacion en el SDK.",
+  "not_demonstrated": [
+    "Que el firmware acepte un AVI generado por nosotros: ninguna escritura al dispositivo se ha hecho. La identidad estructural del contenedor es condicion necesaria, no evidencia de reproduccion",
+    "Que un JPEG codificado con PIL o con ffmpeg 6.1 sea aceptable: se midio el contenedor, no la tolerancia del decoder a tablas de cuantizacion o markers distintos",
+    "Techo superior real de tamano de frame: solo se midio el maximo observado (31893 B). Nada dice que 40000 B falle"
+  ]
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# scratch del pipeline: se regenera con `mochic build` / `mochic spec`
+build/
+
+# destinos por defecto de deploy.apply sin --copia
+.mochisdk-backup/
+.mochisdk-rollback/
+
+# inbox/outbox locales del puente
+.companion/

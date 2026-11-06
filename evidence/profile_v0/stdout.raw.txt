@@ -1,0 +1,707 @@
+# python3 tools/measure_corpus.py
+{
+ "n_archivos": 62,
+ "bytes_corpus": 113450456,
+ "sha256_lista": "0c05fea119d21611cb938b6485ddf093392ea4f34d4442b20bc8baa9b1c1d338",
+ "fps": [
+  30.0
+ ],
+ "dims": [
+  [
+   480,
+   480
+  ]
+ ],
+ "handler_video": [
+  "MJPG"
+ ],
+ "fourcc_strf_video": [
+  "MJPG"
+ ],
+ "audio_format": [
+  "{\"avg_bytes_per_sec\": 96000, \"bits_per_sample\": 16, \"block_align\": 2, \"channels\": 1, \"format_tag\": 1, \"kind\": \"WAVEFORMATEX\", \"samples_per_sec\": 48000}"
+ ],
+ "strh_sizes": [
+  [
+   56,
+   56
+  ]
+ ],
+ "top_chunks": [
+  "JUNK",
+  "LIST:INFO",
+  "LIST:hdrl",
+  "LIST:movi",
+  "idx1"
+ ],
+ "interleave_head": {
+  "vavavavavava": 62
+ },
+ "records_ratio_v_a": [
+  [
+   [
+    "94",
+    "95"
+   ],
+   2
+  ],
+  [
+   [
+    "80",
+    "81"
+   ],
+   1
+  ],
+  [
+   [
+    "105",
+    "106"
+   ],
+   2
+  ],
+  [
+   [
+    "149",
+    "150"
+   ],
+   3
+  ],
+  [
+   [
+    "15",
+    "16"
+   ],
+   1
+  ],
+  [
+   [
+    "43",
+    "44"
+   ],
+   1
+  ],
+  [
+   [
+    "128",
+    "129"
+   ],
+   2
+  ],
+  [
+   [
+    "77",
+    "78"
+   ],
+   1
+  ],
+  [
+   [
+    "146",
+    "147"
+   ],
+   1
+  ],
+  [
+   [
+    "152",
+    "153"
+   ],
+   1
+  ],
+  [
+   [
+    "150",
+    "151"
+   ],
+   2
+  ],
+  [
+   [
+    "227",
+    "228"
+   ],
+   1
+  ],
+  [
+   [
+    "111",
+    "112"
+   ],
+   1
+  ],
+  [
+   [
+    "103",
+    "104"
+   ],
+   1
+  ],
+  [
+   [
+    "501",
+    "502"
+   ],
+   1
+  ],
+  [
+   [
+    "248",
+    "249"
+   ],
+   1
+  ],
+  [
+   [
+    "160",
+    "161"
+   ],
+   1
+  ],
+  [
+   [
+    "157",
+    "158"
+   ],
+   3
+  ],
+  [
+   [
+    "120",
+    "121"
+   ],
+   2
+  ],
+  [
+   [
+    "70",
+    "71"
+   ],
+   1
+  ],
+  [
+   [
+    "46",
+    "47"
+   ],
+   2
+  ],
+  [
+   [
+    "65",
+    "66"
+   ],
+   1
+  ],
+  [
+   [
+    "123",
+    "124"
+   ],
+   1
+  ],
+  [
+   [
+    "304",
+    "305"
+   ],
+   1
+  ],
+  [
+   [
+    "196",
+    "197"
+   ],
+   1
+  ],
+  [
+   [
+    "319",
+    "320"
+   ],
+   1
+  ],
+  [
+   [
+    "163",
+    "164"
+   ],
+   1
+  ],
+  [
+   [
+    "225",
+    "226"
+   ],
+   1
+  ],
+  [
+   [
+    "238",
+    "239"
+   ],
+   1
+  ],
+  [
+   [
+    "167",
+    "168"
+   ],
+   1
+  ],
+  [
+   [
+    "211",
+    "212"
+   ],
+   1
+  ],
+  [
+   [
+    "200",
+    "201"
+   ],
+   1
+  ],
+  [
+   [
+    "185",
+    "186"
+   ],
+   1
+  ],
+  [
+   [
+    "255",
+    "256"
+   ],
+   1
+  ],
+  [
+   [
+    "100",
+    "101"
+   ],
+   1
+  ],
+  [
+   [
+    "112",
+    "113"
+   ],
+   1
+  ],
+  [
+   [
+    "316",
+    "317"
+   ],
+   1
+  ],
+  [
+   [
+    "197",
+    "198"
+   ],
+   1
+  ],
+  [
+   [
+    "92",
+    "93"
+   ],
+   1
+  ],
+  [
+   [
+    "315",
+    "316"
+   ],
+   1
+  ],
+  [
+   [
+    "155",
+    "156"
+   ],
+   1
+  ],
+  [
+   [
+    "253",
+    "254"
+   ],
+   1
+  ],
+  [
+   [
+    "56",
+    "57"
+   ],
+   1
+  ],
+  [
+   [
+    "174",
+    "175"
+   ],
+   1
+  ],
+  [
+   [
+    "86",
+    "87"
+   ],
+   1
+  ],
+  [
+   [
+    "64",
+    "65"
+   ],
+   1
+  ],
+  [
+   [
+    "186",
+    "187"
+   ],
+   1
+  ],
+  [
+   [
+    "175",
+    "176"
+   ],
+   1
+  ],
+  [
+   [
+    "180",
+    "181"
+   ],
+   1
+  ],
+  [
+   [
+    "136",
+    "137"
+   ],
+   1
+  ],
+  [
+   [
+    "76",
+    "77"
+   ],
+   1
+  ],
+  [
+   [
+    "189",
+    "190"
+   ],
+   1
+  ]
+ ],
+ "audio_chunk_hist_total": {
+  "3200": 9650,
+  "0": 62
+ },
+ "odd_size_chunks_files": 62,
+ "pad_files": 62,
+ "pad_byte_values": {
+  "0": 62
+ },
+ "idx1_full_match": 62,
+ "idx1_ckids": [
+  "00dc",
+  "01wb"
+ ],
+ "idx1_flags": [
+  16
+ ],
+ "jpeg_soi_all": 62,
+ "jpeg_eoi_all": 62,
+ "jpeg_sof_all": 62,
+ "riff_size_matches": 62,
+ "movi_declared_eq_actual": 0,
+ "trailing_after_idx1": {
+  "0": 62
+ },
+ "junk_lens": {
+  "(4120, 4120)": 62
+ },
+ "blueprint_unicas": 1,
+ "blueprint": [
+  "RIFF[AVI ]",
+  "RIFF[AVI ]/LIST[hdrl]",
+  "RIFF[AVI ]/LIST[hdrl]/avih#1",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#1",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#1",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#1",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/vprp#1",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#2",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#2",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#2",
+  "RIFF[AVI ]/LIST[hdrl]/JUNK#1",
+  "RIFF[AVI ]/LIST[INFO]",
+  "RIFF[AVI ]/LIST[INFO]/ISFT#1",
+  "RIFF[AVI ]/JUNK#1",
+  "RIFF[AVI ]/LIST[movi]/*",
+  "RIFF[AVI ]/idx1#1"
+ ],
+ "tamano_por_ruta": {
+  "RIFF[AVI ]": [
+   "62 tamanos distintos (126802..4421984)"
+  ],
+  "RIFF[AVI ]/LIST[hdrl]": [
+   8892
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/avih#1": [
+   56
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]": [
+   4220,
+   4320
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#1": [
+   56
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#1": [
+   40
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#1": [
+   4120
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/vprp#1": [
+   68
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#2": [
+   56
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#2": [
+   16
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#2": [
+   4120
+  ],
+  "RIFF[AVI ]/LIST[hdrl]/JUNK#1": [
+   260
+  ],
+  "RIFF[AVI ]/LIST[INFO]": [
+   26
+  ],
+  "RIFF[AVI ]/LIST[INFO]/ISFT#1": [
+   13
+  ],
+  "RIFF[AVI ]/JUNK#1": [
+   1016
+  ],
+  "RIFF[AVI ]/LIST[movi]": [
+   "62 tamanos distintos (116328..4395958)"
+  ],
+  "RIFF[AVI ]/idx1#1": [
+   "52 tamanos distintos (496..16048)"
+  ]
+ },
+ "payloads_constantes": {
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#1": "1c16777aa32c722e",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#1": "399030953c7e736d",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/vprp#1": "a29ef1b0189bfc66",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#2": "157b4d12044c8160",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#2": "3931e73d9cca98f1",
+  "RIFF[AVI ]/LIST[hdrl]/JUNK#1": "75975481f8e1fd5d",
+  "RIFF[AVI ]/LIST[INFO]/ISFT#1": "aa5bcdaf89493344",
+  "RIFF[AVI ]/JUNK#1": "5817bc65840cf706"
+ },
+ "payloads_variables": {
+  "RIFF[AVI ]/LIST[hdrl]/avih#1": "52 hashes distintos",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#1": "62 hashes distintos",
+  "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#2": "52 hashes distintos",
+  "RIFF[AVI ]/idx1#1": "62 hashes distintos"
+ },
+ "vprp_unicas": 1,
+ "vprp_hex": [
+  "00000000000000001e000000e0010000e001000001000100e0010000e001000001000000e0010000e0010000e0010000e001000000000000000000000000000000000000"
+ ],
+ "vprp_presencia": {
+  "1": 62
+ },
+ "junk_tree": [
+  "[]"
+ ],
+ "declared_max_bytes_per_sec": {
+  "n": 62,
+  "min": 121000,
+  "max": 121000,
+  "mean": 121000.0,
+  "median": 121000,
+  "p95": 121000,
+  "p99": 121000
+ },
+ "actual_bytes_per_sec": {
+  "n": 62,
+  "min": 214692.2,
+  "max": 745702.0,
+  "mean": 356178.994,
+  "median": 321290.5,
+  "p95": 559418.7,
+  "p99": 651154.3
+ },
+ "max_frame_bytes_across_corpus": {
+  "n": 62,
+  "min": 5054,
+  "max": 31893,
+  "mean": 13009.645,
+  "median": 11190,
+  "p95": 23527,
+  "p99": 25632
+ },
+ "duration_s": {
+  "n": 62,
+  "min": 0.5,
+  "max": 16.7,
+  "mean": 5.188,
+  "median": 4.966667,
+  "p95": 10.5,
+  "p99": 10.633333
+ },
+ "total_frames": {
+  "n": 62,
+  "min": 15,
+  "max": 501,
+  "mean": 155.645,
+  "median": 149,
+  "p95": 315,
+  "p99": 319
+ },
+ "file_bytes": {
+  "n": 62,
+  "min": 126810,
+  "max": 4421992,
+  "mean": 1829846.065,
+  "median": 1671296,
+  "p95": 3494602,
+  "p99": 3728510
+ },
+ "suggested_buf_eq_max_frame": {
+  "true": 62
+ },
+ "info_variants": [
+  "[[\"ISFT\", 13, \"Lavf61.7.100\"]]"
+ ],
+ "junk_variants": [
+  "[\"399030953c7e736d\", \"3931e73d9cca98f1\"]"
+ ],
+ "junk_nonzero_offsets": [
+  "0",
+  "10",
+  "11",
+  "8",
+  "9"
+ ],
+ "movi_declared_minus_actual": {
+  "n": 62,
+  "min": 4,
+  "max": 4,
+  "mean": 4.0,
+  "median": 4,
+  "p95": 4,
+  "p99": 4
+ },
+ "audio_total_eq_3200_x_video": {
+  "true": 62
+ },
+ "audio_last_chunk_size": {
+  "0": 62
+ },
+ "audio_zero_count": {
+  "1": 62
+ },
+ "video_flags_all_keyframe": {
+  "true": 62
+ },
+ "jpeg_sof_dims": [
+  [
+   480,
+   480
+  ]
+ ],
+ "jpeg_sof_codes": [
+  192
+ ],
+ "jpeg_precision": [
+  8
+ ],
+ "jpeg_components_variants": [
+  "[[1, 2, 2, 0], [2, 1, 1, 0], [3, 1, 1, 0]]"
+ ],
+ "jpeg_header_segment_variants": [
+  "[\"FFE0:16\", \"FFFE:16\", \"FFDB:67\", \"FFC4:102\", \"FFC0:17\"]",
+  "[\"FFE0:16\", \"FFFE:16\", \"FFDB:67\", \"FFC4:103\", \"FFC0:17\"]",
+  "[\"FFE0:16\", \"FFFE:16\", \"FFDB:67\", \"FFC4:106\", \"FFC0:17\"]",
+  "[\"FFE0:16\", \"FFFE:16\", \"FFDB:67\", \"FFC4:107\", \"FFC0:17\"]",
+  "[\"FFE0:16\", \"FFFE:16\", \"FFDB:67\", \"FFC4:108\", \"FFC0:17\"]",
+  "[\"FFE0:16\", \"FFFE:16\", \"FFDB:67\", \"FFC4:109\", \"FFC0:17\"]"
+ ],
+ "jpeg_nframes_without_sos": 0,
+ "jpeg_app0_jfif_all": {
+  "true": 62
+ },
+ "jpeg_encoder_comment": [
+  "Lavc61.19.100"
+ ],
+ "jpeg_sof_hist": {
+  "192": 9650
+ },
+ "jpeg_dqt_hist": {
+  "1": 9650
+ },
+ "jpeg_dht_hist": {
+  "1": 9650
+ },
+ "strf_image_size_eq_rgb_raw": {
+  "true": 62
+ },
+ "avih_streams": {
+  "2": 62
+ },
+ "avih_total_frames_eq_video": {
+  "true": 62
+ },
+ "padding_granularity": [
+  0
+ ],
+ "avih_flags": {
+  "2320": 62
+ },
+ "microsec_per_frame": [
+  33333
+ ]
+}
+=== TECHO DE BITRATE ===
+{
+ "declarado_max": 121000,
+ "declarado_min": 121000,
+ "real_max": 745702.0,
+ "frame_max_absoluto": 31893,
+ "audio_bytes_por_frame": [
+  0,
+  3200
+ ],
+ "nota": "El techo que importa para generar assets nuevos es el maximo de bytes por frame y el max_bytes_per_sec declarados por los archivos que el firmware ya reproduce."
+}
+escrito: /home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-factory-v1.json 510803 bytes
+sha256: 2cc8d9bee957f142c7406b7bd989dbbb771baa7e06c2cd2fc1a681a0925aabf2
+rc=0
+
+# python3 -m pytest tests/ -q
+.......................................................................  [100%]
+71 passed in 1.36s
+rc=0
+
+# control positivo: round-trip byte-exacto sobre los 62 factory
+byte-exactos 62 / 62
+rc=0

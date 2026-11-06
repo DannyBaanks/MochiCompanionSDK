@@ -1,0 +1,653 @@
+$ sha256sum /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__acb6afb9.avi /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__cfa5044a.avi
+[exit 0]
+4f7d6b4325acb5d309d0e66c6e409a7f62b2ea335cfd405725808e0914226db5  /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi
+acb6afb9d8e9494dbba0ce7bfff39340fa38a6ac28584d6a3a62b0fdffb60cb2  /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__acb6afb9.avi
+cfa5044ab749b55d37b67c3450a4ebf492eff8ce55910757487c6c993c5cdb6d  /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__cfa5044a.avi
+
+$ sha256sum /media/danny/MEGAMOCHI/startup.avi
+[exit 0]
+4f7d6b4325acb5d309d0e66c6e409a7f62b2ea335cfd405725808e0914226db5  /media/danny/MEGAMOCHI/startup.avi
+(esta linea es una LECTURA del volumen; no se escribio nada)
+
+$ # identificacion del archivo que hoy esta en el volumen
+coincide byte a byte con: ['startupEJEMPLO__4f7d6b43.avi']
+
+$ python3 tools/diagnose_foreign.py --junit /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__acb6afb9.avi /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__cfa5044a.avi
+[exit 0]
+| startupEJEMPLO__4f7d6b |  1439370 B | v111/a44 | 480x480 fps 30.0 | audio 1 ch 2 48000Hz 16384B/frame | jpeg FFC0 prec 8 sub (34, 17, 17) | strh vids sugg 7719 / frame_max 7719 | duros header.arbol,strf.audio.pcm,strh.audio.campos,movi.interleave,movi.patron,audio.quantum,audio.chunk_final |
+| startup__acb6afb9.avi  |  1544598 B | v111/a112 | 480x480 fps 30.0 | audio 1 ch 2 48000Hz 6400B/frame | jpeg FFC0 prec 8 sub (34, 17, 17) | strh vids sugg 12132 / frame_max 12132 | duros strf.audio.pcm,strh.audio.campos,audio.quantum |
+| startup__cfa5044a.avi  |  1443076 B | v111/a112 | 480x480 fps 30.0 | audio 1 ch 2 48000Hz 6400B/frame | jpeg FFC0 prec 8 sub (34, 17, 17) | strh vids sugg 12132 / frame_max 7737 | duros strh.video.suggested_buf,strf.audio.pcm,strh.audio.campos,audio.quantum |
+
+$ ./mochic validate /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi
+[exit 1]
+{
+ "archivos": 1,
+ "duros": 7,
+ "invalidos": 1,
+ "reportes": [
+  {
+   "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi",
+   "duros": 7,
+   "hallazgos": [
+    {
+     "esperado": [
+      "RIFF[AVI ]",
+      "RIFF[AVI ]/LIST[hdrl]",
+      "RIFF[AVI ]/LIST[hdrl]/avih#1",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#1",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#1",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#1",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/vprp#1",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#2",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#2",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#2",
+      "RIFF[AVI ]/LIST[hdrl]/JUNK#1",
+      "RIFF[AVI ]/LIST[INFO]",
+      "RIFF[AVI ]/LIST[INFO]/ISFT#1",
+      "RIFF[AVI ]/JUNK#1",
+      "RIFF[AVI ]/LIST[movi]",
+      "RIFF[AVI ]/idx1#1"
+     ],
+     "mensaje": "el arbol RIFF difiere del blueprint factory",
+     "observado": [
+      "RIFF[AVI ]",
+      "RIFF[AVI ]/LIST[hdrl]",
+      "RIFF[AVI ]/LIST[hdrl]/avih#1",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#1",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#1",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#1",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strh#2",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/strf#2",
+      "RIFF[AVI ]/LIST[hdrl]/LIST[strl]/JUNK#2",
+      "RIFF[AVI ]/LIST[hdrl]/JUNK#1",
+      "RIFF[AVI ]/LIST[INFO]",
+      "RIFF[AVI ]/LIST[INFO]/ISFT#1",
+      "RIFF[AVI ]/JUNK#1",
+      "RIFF[AVI ]/LIST[movi]",
+      "RIFF[AVI ]/idx1#1"
+     ],
+     "regla": "header.arbol",
+     "severidad": "hard"
+    },
+    {
+     "esperado": 121000,
+     "mensaje": "placeholder constante en factory; no es un limite del dispositivo",
+     "observado": 217000,
+     "regla": "avih.max_bytes_per_sec",
+     "severidad": "soft"
+    },
+    {
+     "esperado": [
+      1,
+      1,
+      48000,
+      96000,
+      2,
+      16
+     ],
+     "mensaje": "WAVEFORMATEX debe ser PCM 16-bit 48 kHz mono, exacto",
+     "observado": [
+      1,
+      2,
+      48000,
+      192000,
+      4,
+      16
+     ],
+     "regla": "strf.audio.pcm",
+     "severidad": "hard"
+    },
+    {
+     "esperado": [
+      48000,
+      2,
+      3200
+     ],
+     "mensaje": "auds: rate 48000, sample_size 2, suggested_buf 3200",
+     "observado": [
+      48000,
+      4,
+      16384
+     ],
+     "regla": "strh.audio.campos",
+     "severidad": "hard"
+    },
+    {
+     "esperado": 223,
+     "mensaje": "el factory intercala 1 chunk de video y 1 de audio por frame, mas un chunk de audio vacio al final",
+     "observado": 155,
+     "regla": "movi.interleave",
+     "severidad": "hard"
+    },
+    {
+     "esperado": "vavavavavavavavavavavava",
+     "mensaje": "el patron de intercalado debe ser (video,audio)* + audio-vacio",
+     "observado": "vavvavvvavvavvvavvavvvav",
+     "regla": "movi.patron",
+     "severidad": "hard"
+    },
+    {
+     "esperado": [
+      3200
+     ],
+     "mensaje": "todo chunk de audio (salvo el ultimo) mide 3200 B en 9650/9650 casos",
+     "observado": [
+      5888,
+      16384
+     ],
+     "regla": "audio.quantum",
+     "severidad": "hard"
+    },
+    {
+     "esperado": 0,
+     "mensaje": "el ultimo chunk de audio mide 0 bytes en 62/62 factory",
+     "observado": 5888,
+     "regla": "audio.chunk_final",
+     "severidad": "hard"
+    }
+   ],
+   "sha256": "4f7d6b4325acb5d309d0e66c6e409a7f62b2ea335cfd405725808e0914226db5",
+   "suaves": 1,
+   "valido": false
+  }
+ ]
+}
+
+$ ./mochic validate /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__acb6afb9.avi
+[exit 1]
+{
+ "archivos": 1,
+ "duros": 3,
+ "invalidos": 1,
+ "reportes": [
+  {
+   "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__acb6afb9.avi",
+   "duros": 3,
+   "hallazgos": [
+    {
+     "esperado": 121000,
+     "mensaje": "placeholder constante en factory; no es un limite del dispositivo",
+     "observado": 217000,
+     "regla": "avih.max_bytes_per_sec",
+     "severidad": "soft"
+    },
+    {
+     "esperado": [
+      1,
+      1,
+      48000,
+      96000,
+      2,
+      16
+     ],
+     "mensaje": "WAVEFORMATEX debe ser PCM 16-bit 48 kHz mono, exacto",
+     "observado": [
+      1,
+      2,
+      48000,
+      192000,
+      4,
+      16
+     ],
+     "regla": "strf.audio.pcm",
+     "severidad": "hard"
+    },
+    {
+     "esperado": [
+      48000,
+      2,
+      3200
+     ],
+     "mensaje": "auds: rate 48000, sample_size 2, suggested_buf 3200",
+     "observado": [
+      48000,
+      4,
+      6400
+     ],
+     "regla": "strh.audio.campos",
+     "severidad": "hard"
+    },
+    {
+     "esperado": [
+      3200
+     ],
+     "mensaje": "todo chunk de audio (salvo el ultimo) mide 3200 B en 9650/9650 casos",
+     "observado": [
+      6400
+     ],
+     "regla": "audio.quantum",
+     "severidad": "hard"
+    }
+   ],
+   "sha256": "acb6afb9d8e9494dbba0ce7bfff39340fa38a6ac28584d6a3a62b0fdffb60cb2",
+   "suaves": 1,
+   "valido": false
+  }
+ ]
+}
+
+$ ./mochic validate /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__cfa5044a.avi
+[exit 1]
+{
+ "archivos": 1,
+ "duros": 4,
+ "invalidos": 1,
+ "reportes": [
+  {
+   "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__cfa5044a.avi",
+   "duros": 4,
+   "hallazgos": [
+    {
+     "esperado": 121000,
+     "mensaje": "placeholder constante en factory; no es un limite del dispositivo",
+     "observado": 217000,
+     "regla": "avih.max_bytes_per_sec",
+     "severidad": "soft"
+    },
+    {
+     "esperado": 7737,
+     "mensaje": "debe ser el tamano del frame JPEG mayor (62/62 factory)",
+     "observado": 12132,
+     "regla": "strh.video.suggested_buf",
+     "severidad": "hard"
+    },
+    {
+     "esperado": [
+      1,
+      1,
+      48000,
+      96000,
+      2,
+      16
+     ],
+     "mensaje": "WAVEFORMATEX debe ser PCM 16-bit 48 kHz mono, exacto",
+     "observado": [
+      1,
+      2,
+      48000,
+      192000,
+      4,
+      16
+     ],
+     "regla": "strf.audio.pcm",
+     "severidad": "hard"
+    },
+    {
+     "esperado": [
+      48000,
+      2,
+      3200
+     ],
+     "mensaje": "auds: rate 48000, sample_size 2, suggested_buf 3200",
+     "observado": [
+      48000,
+      4,
+      6400
+     ],
+     "regla": "strh.audio.campos",
+     "severidad": "hard"
+    },
+    {
+     "esperado": [
+      3200
+     ],
+     "mensaje": "todo chunk de audio (salvo el ultimo) mide 3200 B en 9650/9650 casos",
+     "observado": [
+      6400
+     ],
+     "regla": "audio.quantum",
+     "severidad": "hard"
+    }
+   ],
+   "sha256": "cfa5044ab749b55d37b67c3450a4ebf492eff8ce55910757487c6c993c5cdb6d",
+   "suaves": 1,
+   "valido": false
+  }
+ ]
+}
+
+$ ./mochic inspect /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi
+[exit 0]
+{
+ "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi",
+ "audio_bytes": 710400,
+ "audio_cuanto_ok": false,
+ "avih": {
+  "flags": 2320,
+  "height": 480,
+  "initial_streams": 0,
+  "max_bytes_per_sec": 217000,
+  "microsec_per_frame": 33333,
+  "padding_granularity": 0,
+  "streams": 2,
+  "suggested_buf_size": 1048576,
+  "total_frames": 111,
+  "width": 480
+ },
+ "bytes": 1439370,
+ "duracion_s": 3.7,
+ "frame_bytes": {
+  "max": 7719,
+  "min": 1553,
+  "total": 715240
+ },
+ "idx1_entries": 155,
+ "jpeg_forma": [
+  192,
+  8,
+  480,
+  480,
+  [
+   34,
+   17,
+   17
+  ]
+ ],
+ "registros": {
+  "audio": 44,
+  "otros": 0,
+  "video": 111
+ },
+ "sha256": "4f7d6b4325acb5d309d0e66c6e409a7f62b2ea335cfd405725808e0914226db5",
+ "streams": [
+  {
+   "fcc_handler": "MJPG",
+   "fcc_type": "vids",
+   "flags": 0,
+   "initial_frames": 0,
+   "language": 0,
+   "length": 111,
+   "priority": 0,
+   "quality": -1,
+   "rate": 30,
+   "rect": [
+    0,
+    0,
+    480,
+    480
+   ],
+   "sample_size": 0,
+   "scale": 1,
+   "size": 56,
+   "start": 0,
+   "suggested_buf": 7719
+  },
+  {
+   "fcc_handler": "hex:01000000",
+   "fcc_type": "auds",
+   "flags": 0,
+   "initial_frames": 0,
+   "language": 0,
+   "length": 177600,
+   "priority": 0,
+   "quality": -1,
+   "rate": 48000,
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "sample_size": 4,
+   "scale": 1,
+   "size": 56,
+   "start": 0,
+   "suggested_buf": 16384
+  }
+ ],
+ "strf": [
+  {
+   "bitcount": 24,
+   "clr_important": 0,
+   "clr_used": 0,
+   "compression": "MJPG",
+   "height": 480,
+   "image_size": 691200,
+   "planes": 1,
+   "size": 40,
+   "width": 480,
+   "xppm": 0,
+   "yppm": 0
+  },
+  {
+   "avg_bytes_per_sec": 192000,
+   "bits_per_sample": 16,
+   "block_align": 4,
+   "channels": 2,
+   "format_tag": 1,
+   "samples_per_sec": 48000
+  }
+ ]
+}
+
+$ ./mochic inspect /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__acb6afb9.avi
+[exit 0]
+{
+ "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__acb6afb9.avi",
+ "audio_bytes": 710400,
+ "audio_cuanto_ok": false,
+ "avih": {
+  "flags": 2320,
+  "height": 480,
+  "initial_streams": 0,
+  "max_bytes_per_sec": 217000,
+  "microsec_per_frame": 33333,
+  "padding_granularity": 0,
+  "streams": 2,
+  "suggested_buf_size": 1048576,
+  "total_frames": 111,
+  "width": 480
+ },
+ "bytes": 1544598,
+ "duracion_s": 3.7,
+ "frame_bytes": {
+  "max": 12132,
+  "min": 1571,
+  "total": 818801
+ },
+ "idx1_entries": 223,
+ "jpeg_forma": [
+  192,
+  8,
+  480,
+  480,
+  [
+   34,
+   17,
+   17
+  ]
+ ],
+ "registros": {
+  "audio": 112,
+  "otros": 0,
+  "video": 111
+ },
+ "sha256": "acb6afb9d8e9494dbba0ce7bfff39340fa38a6ac28584d6a3a62b0fdffb60cb2",
+ "streams": [
+  {
+   "fcc_handler": "MJPG",
+   "fcc_type": "vids",
+   "flags": 0,
+   "initial_frames": 0,
+   "language": 0,
+   "length": 111,
+   "priority": 0,
+   "quality": -1,
+   "rate": 30,
+   "rect": [
+    0,
+    0,
+    480,
+    480
+   ],
+   "sample_size": 0,
+   "scale": 1,
+   "size": 56,
+   "start": 0,
+   "suggested_buf": 12132
+  },
+  {
+   "fcc_handler": "hex:01000000",
+   "fcc_type": "auds",
+   "flags": 0,
+   "initial_frames": 0,
+   "language": 0,
+   "length": 177600,
+   "priority": 0,
+   "quality": -1,
+   "rate": 48000,
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "sample_size": 4,
+   "scale": 1,
+   "size": 56,
+   "start": 0,
+   "suggested_buf": 6400
+  }
+ ],
+ "strf": [
+  {
+   "bitcount": 24,
+   "clr_important": 0,
+   "clr_used": 0,
+   "compression": "MJPG",
+   "height": 480,
+   "image_size": 691200,
+   "planes": 1,
+   "size": 40,
+   "width": 480,
+   "xppm": 0,
+   "yppm": 0
+  },
+  {
+   "avg_bytes_per_sec": 192000,
+   "bits_per_sample": 16,
+   "block_align": 4,
+   "channels": 2,
+   "format_tag": 1,
+   "samples_per_sec": 48000
+  }
+ ]
+}
+
+$ ./mochic inspect /home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__cfa5044a.avi
+[exit 0]
+{
+ "archivo": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__cfa5044a.avi",
+ "audio_bytes": 710400,
+ "audio_cuanto_ok": false,
+ "avih": {
+  "flags": 2320,
+  "height": 480,
+  "initial_streams": 0,
+  "max_bytes_per_sec": 217000,
+  "microsec_per_frame": 33333,
+  "padding_granularity": 0,
+  "streams": 2,
+  "suggested_buf_size": 1048576,
+  "total_frames": 111,
+  "width": 480
+ },
+ "bytes": 1443076,
+ "duracion_s": 3.7,
+ "frame_bytes": {
+  "max": 7737,
+  "min": 1571,
+  "total": 717238
+ },
+ "idx1_entries": 223,
+ "jpeg_forma": [
+  192,
+  8,
+  480,
+  480,
+  [
+   34,
+   17,
+   17
+  ]
+ ],
+ "registros": {
+  "audio": 112,
+  "otros": 0,
+  "video": 111
+ },
+ "sha256": "cfa5044ab749b55d37b67c3450a4ebf492eff8ce55910757487c6c993c5cdb6d",
+ "streams": [
+  {
+   "fcc_handler": "MJPG",
+   "fcc_type": "vids",
+   "flags": 0,
+   "initial_frames": 0,
+   "language": 0,
+   "length": 111,
+   "priority": 0,
+   "quality": -1,
+   "rate": 30,
+   "rect": [
+    0,
+    0,
+    480,
+    480
+   ],
+   "sample_size": 0,
+   "scale": 1,
+   "size": 56,
+   "start": 0,
+   "suggested_buf": 12132
+  },
+  {
+   "fcc_handler": "hex:01000000",
+   "fcc_type": "auds",
+   "flags": 0,
+   "initial_frames": 0,
+   "language": 0,
+   "length": 177600,
+   "priority": 0,
+   "quality": -1,
+   "rate": 48000,
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "sample_size": 4,
+   "scale": 1,
+   "size": 56,
+   "start": 0,
+   "suggested_buf": 6400
+  }
+ ],
+ "strf": [
+  {
+   "bitcount": 24,
+   "clr_important": 0,
+   "clr_used": 0,
+   "compression": "MJPG",
+   "height": 480,
+   "image_size": 691200,
+   "planes": 1,
+   "size": 40,
+   "width": 480,
+   "xppm": 0,
+   "yppm": 0
+  },
+  {
+   "avg_bytes_per_sec": 192000,
+   "bits_per_sample": 16,
+   "block_align": 4,
+   "channels": 2,
+   "format_tag": 1,
+   "samples_per_sec": 48000
+  }
+ ]
+}

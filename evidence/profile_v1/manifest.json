@@ -1,0 +1,90 @@
+{
+  "schema": "isyco-evidence-pack-v1",
+  "created_at": "2026-11-06T12:29:47Z",
+  "environment": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
+    "git_commit": "e318b57"
+  },
+  "command": "python3 tools/measure_corpus.py (dos corridas) + sha256sum profiles/*.json",
+  "exit_code": 0,
+  "stdout": {
+    "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/profile_v1/stdout.raw.txt",
+    "relative": "evidence/profile_v1/stdout.raw.txt",
+    "sha256": "f5e4e13ec29056c1e4b2c2909ded8d8b20344ac37307c11cdf1ff824c5155d40"
+  },
+  "artifacts": [
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-factory-v1.json",
+      "relative": "profiles/mochi-factory-v1.json",
+      "sha256": "e3ef250444f57706c59f044126800db304f92e1c2c9146ba8488f15f33aff21e"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-header-v1.json",
+      "relative": "profiles/mochi-header-v1.json",
+      "sha256": "7a26b14a0a09af8081f9e3807818c61683dafbe8313fd1229c489bea2b8cc9ad"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/measure_corpus.py",
+      "relative": "tools/measure_corpus.py",
+      "sha256": "c590c5ba417d3c63e036a9a414c1dd3db02abd5cdc6657e9a60ca145a67de5ce"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/writer.py",
+      "relative": "mochisdk/writer.py",
+      "sha256": "5b27ddbbe001d3cd05faaad8aad8b6f0d3a7fb9daaa74a09a80687a5da467d2a"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/profile.py",
+      "relative": "mochisdk/profile.py",
+      "sha256": "729e59938e77749f71497ff701596a38451052b11db5f2518e9c585d19f93b82"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/profile_v1/VERDICT.md",
+      "relative": "evidence/profile_v1/VERDICT.md",
+      "sha256": "06089c885b5c9dec55d91b2c31433cd3e51b5a6feb26e8f76a4592b6e9138874"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/profile_v0/CORRECCIONES.md",
+      "relative": "evidence/profile_v0/CORRECCIONES.md",
+      "sha256": "74b771315008c56b7ebe5d67e42273fd9619dbf9d0061165d1f006c5dd7b1a1d"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/profile_v1/CORRECCIONES.md",
+      "relative": "evidence/profile_v1/CORRECCIONES.md",
+      "sha256": "bbbebf17908be560451a27a2af4e2356354a251dff56ba08e761e308a62bea01"
+    }
+  ],
+  "claims": [
+    {
+      "text": "El perfil factory es byte-reproducible: dos corridas de tools/measure_corpus.py dan el mismo sha256 (e3ef250444f5...) porque ya no embeddean marca de tiempo",
+      "status": "PASS"
+    },
+    {
+      "text": "62/62 archivos factory comparten un unico blueprint de cabecera (blueprint_unicas=1)",
+      "status": "PASS"
+    },
+    {
+      "text": "audio_total == 3200 x frames de video en 62/62 (audio_total_eq_3200_x_video = true x62)",
+      "status": "PASS"
+    },
+    {
+      "text": "idx1 calza con los registros de movi en 62/62 archivos (idx1_full_match = 62)",
+      "status": "PASS"
+    },
+    {
+      "text": "el mayor frame JPEG medido en el corpus es 31893 B y el mayor bitrate real 745702 B/s; max_bytes_per_sec declarado 121000 es un placeholder, no un techo",
+      "status": "PASS"
+    },
+    {
+      "text": "profile_v0 queda SUPERSEDED: su manifest registro sha256 de mochi-factory-v1.json y container.py antes de que ambos cambiaran en disco",
+      "status": "SUPERSEDED"
+    }
+  ],
+  "scope": "Medicion del contenedor de los 62 videos factory del DASAI Mega Mochi, sobre la copia local ~/megamochi-backup; cero lecturas del dispositivo",
+  "not_demonstrated": [
+    "techo real de bitrate o de bytes por frame del firmware",
+    "aceptacion por el firmware de un AVI generado"
+  ]
+}

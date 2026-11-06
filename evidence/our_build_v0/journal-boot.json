@@ -1,0 +1,14 @@
+{
+ "accion": "mochi-deploy-v1",
+ "sello": "20261106T124305Z",
+ "volumen": "/media/danny/MEGAMOCHI",
+ "token": "778be8590f04",
+ "entradas": [
+  {
+   "destino": "startup.avi",
+   "backup": "/home/danny/megamochi-backup/deploy_2026-11-06_ours/startup.avi",
+   "sha_previo": "dbd65d1fdf1ceafc360a51bf5590bbcbcdb527daf1ededd5dbf56bf322def3a4",
+   "sha_nuevo": "86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7"
+  }
+ ]
+}

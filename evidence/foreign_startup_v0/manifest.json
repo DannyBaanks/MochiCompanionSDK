@@ -1,0 +1,102 @@
+{
+  "schema": "isyco-evidence-pack-v1",
+  "created_at": "2026-11-06T12:28:58Z",
+  "environment": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
+    "git_commit": "e318b57"
+  },
+  "command": "python3 tools/capture_foreign.py --out evidence/foreign_startup_v0/stdout.raw.txt",
+  "exit_code": 0,
+  "stdout": {
+    "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/stdout.raw.txt",
+    "relative": "evidence/foreign_startup_v0/stdout.raw.txt",
+    "sha256": "f1274310043d5ea06cd06c5edd4fc1db5b9cb22a34cd42bf800ec4a707262d41"
+  },
+  "artifacts": [
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/VERDICT.md",
+      "relative": "evidence/foreign_startup_v0/VERDICT.md",
+      "sha256": "8386a4ae3d939eacbba2a1bbd4652364b92871854e18274cbb0774a5af2d742d"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/CORRECCIONES.md",
+      "relative": "evidence/foreign_startup_v0/CORRECCIONES.md",
+      "sha256": "5f691517fa407b961e729e282da1b3e31696b0d7c5f028898caeb74ccdd44d29"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/inputs.raw.txt",
+      "relative": "evidence/foreign_startup_v0/inputs.raw.txt",
+      "sha256": "5aa7c1f37b0d4cdb935cad2ba2efd5f1e0aca465190057cb5b82a5d19661c4cc"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__acb6afb9.avi",
+      "relative": "evidence/foreign_startup_v0/input/startup__acb6afb9.avi",
+      "sha256": "acb6afb9d8e9494dbba0ce7bfff39340fa38a6ac28584d6a3a62b0fdffb60cb2"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startup__cfa5044a.avi",
+      "relative": "evidence/foreign_startup_v0/input/startup__cfa5044a.avi",
+      "sha256": "cfa5044ab749b55d37b67c3450a4ebf492eff8ce55910757487c6c993c5cdb6d"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi",
+      "relative": "evidence/foreign_startup_v0/input/startupEJEMPLO__4f7d6b43.avi",
+      "sha256": "4f7d6b4325acb5d309d0e66c6e409a7f62b2ea335cfd405725808e0914226db5"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/capture_foreign.py",
+      "relative": "tools/capture_foreign.py",
+      "sha256": "8488a1c52518a02d1f65ca995cd60525d06b609ced35d0b0ec03f31d560bf6a4"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/diagnose_foreign.py",
+      "relative": "tools/diagnose_foreign.py",
+      "sha256": "3e69415b8a859656c433325a773e82b2f576b2791abe7b82b1582e690ee7989d"
+    }
+  ],
+  "claims": [
+    {
+      "text": "El startup.avi del volumen es byte a byte startupEJEMPLO__4f7d6b43.avi (sha 4f7d6b4325ac); lectura, cero escrituras",
+      "status": "PASS"
+    },
+    {
+      "text": "El startup.avi de fabrica NO cumplia el perfil mochic: 3 duros de audio. Reclasificado en CORRECCIONES.md: era un falso positivo del validator, no una propiedad del dispositivo",
+      "status": "PASS"
+    },
+    {
+      "text": "Invariante strh.vids.suggested_buf == mayor JPEG se cumple en el arranque de fabrica (12132==12132) y en el archivo ajeno pegado (7719==7719)",
+      "status": "PASS"
+    },
+    {
+      "text": "El archivo que provoco la pantalla en blanco viola 4 propiedades a la vez: sin vprp, 155 registros vs 223, audio en bloques 16384 B, chunk final 5888 B vs 0",
+      "status": "PASS"
+    },
+    {
+      "text": "Los fotogramas del archivo ajeno no son blancos: media 18.1/255 std 64.5; el blanco es fallo del camino de video del firmware",
+      "status": "PASS"
+    },
+    {
+      "text": "El segundo archivo ajeno cfa5044a reproduce la geometria del arranque de fabrica y solo desvia suggested_buf (declara 12132, frame max 7737)",
+      "status": "PASS"
+    },
+    {
+      "text": "Relations de audio derivadas medidas en los 63 archivos reales del volumen: 7 invariantes 63/63 y canales==1 solo 62/63; con eso el fabrico arranca en 0 duros y los ajenos siguen cayendo (1 y 6)",
+      "status": "PASS"
+    },
+    {
+      "text": "Cual de las desviaciones causo la pantalla en blanco",
+      "status": "NOT_DEMONSTRATED"
+    },
+    {
+      "text": "Reproduccion de un startup.avi mono",
+      "status": "NOT_DEMONSTRATED"
+    }
+  ],
+  "scope": "3 archivos observados sin intervencion; este pack no escribio el dispositivo (la escritura esta en startup_write_v0)",
+  "not_demonstrated": [
+    "aislar la variable causal exige una escritura por candidato en el dispositivo",
+    "comportamiento del firmware con audio mono en el slot de arranque"
+  ]
+}

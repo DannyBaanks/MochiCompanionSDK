@@ -1,0 +1,134 @@
+$ date -u +%FT%TZ
+2026-11-06T12:26:53Z
+
+$ grep sda1 /proc/mounts
+/dev/sda1 /media/danny/MEGAMOCHI vfat rw,nosuid,nodev,relatime,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,showexec,utf8,flush,errors=remount-ro 0 0
+
+$ python3 tools/fix_suggested_buf.py /home/danny/Descargas/startup.avi /tmp/mochi-write/startup__reparado.avi
+{
+ "bytes": 1443076,
+ "bytes_diferentes": 2,
+ "copia": "/tmp/mochi-write/startup__reparado.avi",
+ "declarado": 12132,
+ "duros_restantes": [],
+ "frame_max": 7737,
+ "offset": 144,
+ "origen": "/home/danny/Descargas/startup.avi",
+ "sha_copia": "dbd65d1fdf1ceafc360a51bf5590bbcbcdb527daf1ededd5dbf56bf322def3a4",
+ "sha_origen": "cfa5044ab749b55d37b67c3450a4ebf492eff8ce55910757487c6c993c5cdb6d"
+}
+[exit 0]
+
+$ ./mochic plan /media/danny/MEGAMOCHI --par /tmp/mochi-write/startup__reparado.avi startup.avi --salida /tmp/mochi-write/plan.json
+{
+ "accion": "mochi-deploy-v1",
+ "volumen": "/media/danny/MEGAMOCHI",
+ "creado_utc": "2026-11-06T12:26:40Z",
+ "operaciones": [
+  {
+   "origen": "/tmp/mochi-write/startup__reparado.avi",
+   "origen_sha256": "dbd65d1fdf1ceafc360a51bf5590bbcbcdb527daf1ededd5dbf56bf322def3a4",
+   "origen_bytes": 1443076,
+   "destino": "startup.avi",
+   "destino_absoluto": "/media/danny/MEGAMOCHI/startup.avi",
+   "destino_sha256_actual": "4f7d6b4325acb5d309d0e66c6e409a7f62b2ea335cfd405725808e0914226db5",
+   "destino_bytes_actual": 1439370,
+   "suaves": [
+    {
+     "regla": "avih.max_bytes_per_sec",
+     "severidad": "soft",
+     "mensaje": "placeholder constante en factory; no es un limite del dispositivo",
+     "observado": 217000,
+     "esperado": 121000
+    },
+    {
+     "regla": "strf.audio.canales",
+     "severidad": "soft",
+     "mensaje": "mono en 62/63 assets; el startup.avi de fabrica es stereo y es el unico caso observado",
+     "observado": 2,
+     "esperado": 1
+    }
+   ]
+  }
+ ],
+ "total_bytes": 1443076,
+ "advertencia": "Escribir en el volumen cambia el estado del dispositivo. Este plan no ha escrito nada.",
+ "token": "47e45cafa60e"
+}
+[exit 0]
+
+$ ./mochic apply /tmp/mochi-write/plan.json --token 47e45cafa60e --copia /home/danny/megamochi-backup/deploy_2026-11-06_bootslot --diario /tmp/mochi-write/journal.json
+{
+ "avisos": [
+  "el firmware no ha sido observado todavia con estos archivos nuevos",
+  "rollback: mochic rollback /tmp/mochi-write/journal.json"
+ ],
+ "backup_root": "/home/danny/megamochi-backup/deploy_2026-11-06_bootslot",
+ "escritos": [
+  "startup.avi"
+ ],
+ "journal": "/tmp/mochi-write/journal.json",
+ "total_bytes": 1443076,
+ "volumen": "/media/danny/MEGAMOCHI"
+}
+[exit 0]
+
+$ sync
+[exit 0]
+
+$ sha256sum /media/danny/MEGAMOCHI/startup.avi
+dbd65d1fdf1ceafc360a51bf5590bbcbcdb527daf1ededd5dbf56bf322def3a4  /media/danny/MEGAMOCHI/startup.avi
+[exit 0]
+
+$ python3 -m pytest tests/ -q
+........................................................................ [ 79%]
+......................................                                   [100%]
+182 passed in 2.92s
+[exit 0]
+
+$ ./mochic profile --control   (solo recuento del corpus de 62)
+{
+ "control_positivo": {
+  "archivos": 62,
+  "esperado": 0,
+  "lista_rechazados": [],
+  "motivo": "un asset factory rechazado implica regla mala, no asset malo",
+  "rechazados": 0,
+  "veredicto": "PASS"
+ },
+ "corpus_sha256": "0c05fea119d21611cb938b6485ddf093392ea4f34d4442b20bc8baa9b1c1d338",
+ "fuente": "/home/danny/megamochi-backup/volume_files/video",
+ "hechos": {
+  "actual_bytes_per_sec": {
+   "max": 745702.0,
+   "mean": 356178.994,
+   "median": 321290.5,
+   "min": 214692.2,
+   "n": 62,
+   "p95": 559418.7,
+   "p99": 651154.3
+  },
+  "audio_format": [
+   "{\"avg_bytes_per_sec\": 96000, \"bits_per_sample\": 16, \"block_align\": 2, \"channels\": 1, \"format_tag\": 1, \"kind\": \"WAVEFORMATEX\", \"samples_per_sec\": 48000}"
+  ],
+  "audio_total_eq_3200_x_video": {
+   "true": 62
+  },
+  "blueprint_unicas": 1,
+  "bytes_corpus": 113450456,
+  "dims": [
+   [
+    480,
+    480
+   ]
+  ],
+  "duration_
+[exit 0]
+
+$ python3 -c "control: duros por archivo sobre los 63 reales del volumen"
+archivos medidos 63, rechazados 0
+startup.avi                                                duros=0 -
+startup__cfa5044a.avi                                      duros=1 strh.video.suggested_buf
+startupEJEMPLO__4f7d6b43.avi                               duros=6 header.arbol,strh.audio.campos,movi.interleave,movi.patron,audio.quantum,audio.chunk_final
+[exit 0]
+

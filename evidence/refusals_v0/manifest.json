@@ -1,0 +1,95 @@
+{
+  "schema": "isyco-evidence-pack-v1",
+  "created_at": "2026-11-06T13:05:15Z",
+  "environment": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cwd": "/home/danny/Development/ISyCo Git/MochiCompanionSDK",
+    "git_commit": "e318b57"
+  },
+  "command": "python3 tools/capture_refusals.py",
+  "exit_code": 0,
+  "stdout": {
+    "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/refusals_v0/stdout.raw.txt",
+    "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/refusals_v0/stdout.raw.txt",
+    "sha256": "9015ea8f5442e89d3e9f69a49b6fe8aac48bed0f62d8b1ea5d877d292009121a"
+  },
+  "artifacts": [
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/refusals_v0/mutante.avi",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/refusals_v0/mutante.avi",
+      "sha256": "5942f22da0bef11437e8feb068fd4acaa435ddbef4dea2db92fe130989eecb7c"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/capture_refusals.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/tools/capture_refusals.py",
+      "sha256": "a749e6bbb2df0dc1112ee96cdec8f80e02df157bf9c1ea414ed84cd55b88688b"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/cli.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/cli.py",
+      "sha256": "6c4baef112a7da82808590db470c7da3fc8f080a12f44395e821add4eb052b0c"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/profile.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/profile.py",
+      "sha256": "729e59938e77749f71497ff701596a38451052b11db5f2518e9c585d19f93b82"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/deploy.py",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/mochisdk/deploy.py",
+      "sha256": "704fce8cc19d95710b4f8401a449fbad0d2388de0cf5faeadf5ef22df7621391"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-factory-v1.json",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/profiles/mochi-factory-v1.json",
+      "sha256": "e3ef250444f57706c59f044126800db304f92e1c2c9146ba8488f15f33aff21e"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/refusals_v0/VERDICT.md",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/refusals_v0/VERDICT.md",
+      "sha256": "4255f0acda376b7c11f61b260d8a5599abf3a2f8bf9bfda41353f22deac5626a"
+    },
+    {
+      "file": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/refusals_v0/CORRECCIONES.md",
+      "relative": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/evidence/refusals_v0/CORRECCIONES.md",
+      "sha256": "7def76a7baff89cb40e4ded5438fef32ddff818033f2e676c75b3ef93d6f103f"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Los codigos contractuales 1, 2 y 5 que GUIA seccion 4 declara fueron ejecutados y observados en crudo: 12 bloques sobre un volumen falso en /tmp, cero lecturas del dispositivo",
+      "status": "PASS"
+    },
+    {
+      "text": "Hallazgo duro: cambiar el tamano declarado de un registro 01wb de 3200 a 3000 B produce 5 hallazgos duros (movi.interleave, movi.patron, audio.quantum, idx1.entries, idx1.alineado) y exit 1; el mismo AVI sin mutar devuelve exit 0",
+      "status": "PASS"
+    },
+    {
+      "text": "Uso: plan sin spec ni --par y playlist sin volumen devuelven exit 2",
+      "status": "PASS"
+    },
+    {
+      "text": "Rechazo especifico: plan contra video/NoExiste.avi devuelve exit 5 por spec y por --par, y el mismo --par contra video/Squint.avi devuelve exit 0 con ese destino",
+      "status": "PASS"
+    },
+    {
+      "text": "El puente no escribe un evento con un valor fuera de companion-event-v1: exit 1 y el inbox ni siquiera se crea",
+      "status": "PASS"
+    },
+    {
+      "text": "La captura es repetible salvo dos campos de reloj (creado_utc del plan de control y su token derivado); los codigos de salida afirmados no dependen de ellos",
+      "status": "CONDITIONAL_PASS"
+    },
+    {
+      "text": "Que el firmware acepte alguno de estos archivos o rechace el mutante",
+      "status": "NOT_DEMONSTRATED"
+    }
+  ],
+  "scope": "Codigos de salida contractuales de mochic v0.1.0 y especificidad de los rechazos, medidos sobre volumenes falsos en /tmp con copias locales del corpus factory",
+  "not_demonstrated": [
+    "aceptacion por el firmware de un AVI generado",
+    "techo real de bytes por frame o de bitrate",
+    "disparo fisico de cada animacion (MOCHI-REA-03)"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+ "accion": "mochi-deploy-v1",
+ "sello": "20261106T124350Z",
+ "volumen": "/media/danny/MEGAMOCHI",
+ "token": "f8f6f99506c3",
+ "entradas": [
+  {
+   "destino": "video/Blink.avi",
+   "backup": "/home/danny/megamochi-backup/deploy_2026-11-06_ours/Blink.avi",
+   "sha_previo": "087788a2233cba5081ca3855088a1d10263d8dfb5dbe1d0f97d563b08a00cd27",
+   "sha_nuevo": "541c29e4c582250ea4d870f9322b272f227efbc8255e72afad37b220a7f9d5ae"
+  }
+ ]
+}

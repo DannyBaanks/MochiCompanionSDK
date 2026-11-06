@@ -1,0 +1,318 @@
+$ date -u +%FT%TZ
+2026-11-06T12:43:04Z
+
+$ ./mochic spec --pack ~/Development/'ISyCo Git'/Companion/packs/malbolge-cat --animacion idle --slot startup.avi --fotogramas 111 --budget 12000 --id boot-nuestro-v1 -o build/spec-boot.json
+[exit 0]
+
+$ ./mochic build build/spec-boot.json
+{
+ "animacion": "idle",
+ "budget_por_frame": 12000,
+ "bytes_avi": 1691426,
+ "duracion_s": 3.7,
+ "frame_bytes": {
+  "max": 11937,
+  "min": 11850,
+  "total": 1320810
+ },
+ "frames": 111,
+ "jpeg_quality": {
+  "max": 73,
+  "mediana": 67,
+  "min": 66
+ },
+ "nombre_video_destino": "startup.avi",
+ "origen": "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat/malbolgato-idle.gif",
+ "ruta": "build/boot-nuestro-v1.avi",
+ "sha256": "86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7",
+ "siguiente_paso": "mochic plan VOLUMEN build/spec-boot.json",
+ "spec_id": "boot-nuestro-v1",
+ "validacion": {
+  "duros": 0,
+  "hallazgos": [],
+  "suaves": 0,
+  "valido": true
+ }
+}
+[exit 0]
+
+$ ./mochic plan /media/danny/MEGAMOCHI --par build/boot-nuestro-v1.avi startup.avi --salida /tmp/mochi-write/plan-nuestro.json
+{
+ "accion": "mochi-deploy-v1",
+ "advertencia": "Escribir en el volumen cambia el estado del dispositivo. Este plan no ha escrito nada.",
+ "comando_siguiente": "mochic apply /tmp/mochi-write/plan-nuestro.json --token 778be8590f04",
+ "creado_utc": "2026-11-06T12:43:05Z",
+ "operaciones": [
+  {
+   "destino": "startup.avi",
+   "destino_absoluto": "/media/danny/MEGAMOCHI/startup.avi",
+   "destino_bytes_actual": 1443076,
+   "destino_sha256_actual": "dbd65d1fdf1ceafc360a51bf5590bbcbcdb527daf1ededd5dbf56bf322def3a4",
+   "origen": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/build/boot-nuestro-v1.avi",
+   "origen_bytes": 1691426,
+   "origen_sha256": "86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7",
+   "suaves": []
+  }
+ ],
+ "plan_archivo": "/tmp/mochi-write/plan-nuestro.json",
+ "token": "778be8590f04",
+ "total_bytes": 1691426,
+ "volumen": "/media/danny/MEGAMOCHI"
+}
+[exit 0]
+
+$ ./mochic apply /tmp/mochi-write/plan-nuestro.json --token 778be8590f04 --copia /home/danny/megamochi-backup/deploy_2026-11-06_ours --diario /home/danny/megamochi-backup/deploy_2026-11-06_ours/journal-boot.json
+{
+ "avisos": [
+  "el firmware no ha sido observado todavia con estos archivos nuevos",
+  "rollback: mochic rollback /home/danny/megamochi-backup/deploy_2026-11-06_ours/journal-boot.json"
+ ],
+ "backup_root": "/home/danny/megamochi-backup/deploy_2026-11-06_ours",
+ "escritos": [
+  "startup.avi"
+ ],
+ "journal": "/home/danny/megamochi-backup/deploy_2026-11-06_ours/journal-boot.json",
+ "total_bytes": 1691426,
+ "volumen": "/media/danny/MEGAMOCHI"
+}
+[exit 0]
+
+$ sync
+[exit 0]
+
+$ sha256sum /media/danny/MEGAMOCHI/startup.avi
+86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7  /media/danny/MEGAMOCHI/startup.avi
+
+$ ls -la --time-style=+%FT%TZ /home/danny/megamochi-backup/deploy_2026-11-06_ours
+total 1424
+drwxrwxr-x 2 danny danny    4096 2026-11-06T06:43:09Z .
+drwxrwxr-x 6 danny danny    4096 2026-11-06T06:43:05Z ..
+-rw-rw-r-- 1 danny danny     430 2026-11-06T06:43:09Z journal-boot.json
+-rw-r--r-- 1 danny danny 1443076 2026-11-06T06:26:52Z startup.avi
+
+$ sha256sum /home/danny/megamochi-backup/deploy_2026-11-06_ours/startup.avi   # backup del previo dbd65d1f
+dbd65d1fdf1ceafc360a51bf5590bbcbcdb527daf1ededd5dbf56bf322def3a4  /home/danny/megamochi-backup/deploy_2026-11-06_ours/startup.avi
+
+$ ./mochic map
+[0] mapa escrito en build/mapa-anim-slot.json
+{
+ "drag": "UpsideDown.avi",
+ "error": "Crying.avi",
+ "idle": "Blink.avi",
+ "running-left": "Look Left.avi",
+ "running-right": "Look Right.avi",
+ "success": "Smile.avi",
+ "thinking": "Squint.avi",
+ "waiting": "Sleepy.avi",
+ "working": "Revs.avi"
+}
+
+$ ./mochic inspect ~/megamochi-backup/volume_files/video/Blink.avi   # slot de idle, para igualar duracion y presupuesto
+{
+ "bytes": 126810,
+ "frames": 15,
+ "duracion_s": 0.5,
+ "frame_bytes": {
+  "max": 5054,
+  "min": 3680,
+  "total": 68070
+ },
+ "audio_bytes": 48000,
+ "audio_cuanto_ok": true,
+ "sha256": "087788a2233cba5081ca3855088a1d10263d8dfb5dbe1d0f97d563b08a00cd27"
+}
+[exit 0]
+
+$ ./mochic spec --pack <malbolge-cat> --animacion idle --slot Blink.avi --fotogramas 15 --budget 5000 --id video-nuestro-v0 -o build/spec-video.json
+{
+ "escrito": "/home/danny/Development/ISyCo Git/MochiCompanionSDK/build/spec-video.json",
+ "spec": "video-nuestro-v0"
+}
+[exit 0]
+
+$ ./mochic build build/spec-video.json
+{
+ "animacion": "idle",
+ "budget_por_frame": 5000,
+ "bytes_avi": 131782,
+ "duracion_s": 0.5,
+ "frame_bytes": {
+  "max": 4938,
+  "min": 4808,
+  "total": 73040
+ },
+ "frames": 15,
+ "jpeg_quality": {
+  "max": 16,
+  "mediana": 16,
+  "min": 13
+ },
+ "nombre_video_destino": "Blink.avi",
+ "origen": "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat/malbolgato-idle.gif",
+ "ruta": "build/video-nuestro-v0.avi",
+ "sha256": "489d78a6be629686806e9141a8a5a262e2b8c8b7e12898c02a1583fc79d0eb03",
+ "siguiente_paso": "mochic plan VOLUMEN build/spec-video.json",
+ "spec_id": "video-nuestro-v0",
+ "validacion": {
+  "duros": 0,
+  "hallazgos": [],
+  "suaves": 0,
+  "valido": true
+ }
+}
+[exit 0]
+
+$ ./mochic spec --pack <malbolge-cat> --animacion idle --slot Blink.avi --fotogramas 15 --budget 12000 --id video-nuestro-v1 -o build/spec-video.json
+[exit 0]
+
+$ ./mochic build build/spec-video.json   # segunda toma: budget 12000, techo observado 31893
+{
+ "animacion": "idle",
+ "budget_por_frame": 12000,
+ "bytes_avi": 237092,
+ "duracion_s": 0.5,
+ "frame_bytes": {
+  "max": 11937,
+  "min": 11850,
+  "total": 178346
+ },
+ "frames": 15,
+ "jpeg_quality": {
+  "max": 73,
+  "mediana": 72,
+  "min": 67
+ },
+ "nombre_video_destino": "Blink.avi",
+ "origen": "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat/malbolgato-idle.gif",
+ "ruta": "build/video-nuestro-v1.avi",
+ "sha256": "541c29e4c582250ea4d870f9322b272f227efbc8255e72afad37b220a7f9d5ae",
+ "siguiente_paso": "mochic plan VOLUMEN build/spec-video.json",
+ "spec_id": "video-nuestro-v1",
+ "validacion": {
+  "duros": 0,
+  "hallazgos": [],
+  "suaves": 0,
+  "valido": true
+ }
+}
+[exit 0]
+
+$ ./mochic plan /media/danny/MEGAMOCHI --par build/video-nuestro-v1.avi video/Blink.avi --salida /tmp/mochi-write/plan-video.json
+{
+ "destino": "video/Blink.avi",
+ "previo_sha": "087788a2233cba5081ca3855088a1d10263d8dfb5dbe1d0f97d563b08a00cd27",
+ "previo_bytes": 126810,
+ "origen_sha": "541c29e4c582250ea4d870f9322b272f227efbc8255e72afad37b220a7f9d5ae",
+ "origen_bytes": 237092,
+ "suaves": [],
+ "token": "f8f6f99506c3"
+}
+[exit 0]
+
+$ ./mochic apply /tmp/mochi-write/plan-video.json --token f8f6f99506c3 --copia /home/danny/megamochi-backup/deploy_2026-11-06_ours --diario /home/danny/megamochi-backup/deploy_2026-11-06_ours/journal-video.json
+{
+ "avisos": [
+  "el firmware no ha sido observado todavia con estos archivos nuevos",
+  "rollback: mochic rollback /home/danny/megamochi-backup/deploy_2026-11-06_ours/journal-video.json"
+ ],
+ "backup_root": "/home/danny/megamochi-backup/deploy_2026-11-06_ours",
+ "escritos": [
+  "video/Blink.avi"
+ ],
+ "journal": "/home/danny/megamochi-backup/deploy_2026-11-06_ours/journal-video.json",
+ "total_bytes": 237092,
+ "volumen": "/media/danny/MEGAMOCHI"
+}
+[exit 0]
+
+$ sync
+
+$ sha256sum /media/danny/MEGAMOCHI/video/Blink.avi
+541c29e4c582250ea4d870f9322b272f227efbc8255e72afad37b220a7f9d5ae  /media/danny/MEGAMOCHI/video/Blink.avi
+
+$ ls -la --time-style=+%FT%TZ /home/danny/megamochi-backup/deploy_2026-11-06_ours
+total 1552
+drwxrwxr-x 2 danny danny    4096 2026-11-06T06:43:51Z .
+drwxrwxr-x 6 danny danny    4096 2026-11-06T06:43:05Z ..
+-rw-r--r-- 1 danny danny  126810 2025-03-10T14:17:34Z Blink.avi
+-rw-rw-r-- 1 danny danny     430 2026-11-06T06:43:09Z journal-boot.json
+-rw-rw-r-- 1 danny danny     432 2026-11-06T06:43:51Z journal-video.json
+-rw-r--r-- 1 danny danny 1443076 2026-11-06T06:26:52Z startup.avi
+
+$ grep sda1 /proc/mounts
+/dev/sda1 /media/danny/MEGAMOCHI vfat rw,nosuid,nodev,relatime,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,showexec,utf8,flush,errors=remount-ro 0 0
+
+$ journalctl -k --since '-15 min' | grep -Ei 'sda|error -71|read-only' | tail
+nov 06 06:35:09 DannyISyCo kernel: usb 7-1: device descriptor read/64, error -71
+nov 06 06:35:10 DannyISyCo kernel: sd 0:0:0:0: [sda] 1966080 512-byte logical blocks: (1.01 GB/960 MiB)
+nov 06 06:35:10 DannyISyCo kernel: sd 0:0:0:0: [sda] Test WP failed, assume Write Enabled
+nov 06 06:35:10 DannyISyCo kernel: sd 0:0:0:0: [sda] Asking for cache data failed
+nov 06 06:35:10 DannyISyCo kernel: sd 0:0:0:0: [sda] Assuming drive cache: write through
+nov 06 06:35:10 DannyISyCo kernel:  sda: sda1
+nov 06 06:35:10 DannyISyCo kernel: sd 0:0:0:0: [sda] Attached SCSI removable disk
+nov 06 06:35:12 DannyISyCo kernel: FAT-fs (sda1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+
+
+$ ./mochic build build/spec-boot-audio.json   # re-corrido: el render es determinista, el sha debe calzar con lo instalado
+{
+ "animacion": "idle",
+ "budget_por_frame": 12000,
+ "bytes_avi": 1691426,
+ "duracion_s": 3.7,
+ "frame_bytes": {
+  "max": 11937,
+  "min": 11850,
+  "total": 1320810
+ },
+ "frames": 111,
+ "jpeg_quality": {
+  "max": 73,
+  "mediana": 67,
+  "min": 66
+ },
+ "nombre_video_destino": "startup.avi",
+ "origen": "/home/danny/Development/ISyCo Git/Companion/packs/malbolge-cat/malbolgato-idle.gif",
+ "ruta": "build/boot-nuestro-v2.avi",
+ "sha256": "e7b85961ba95a3e9c722add92d6cdc4dc079d8317d96da8b1b4f02527c013582",
+ "siguiente_paso": "mochic plan VOLUMEN build/spec-boot-audio.json",
+ "spec_id": "boot-nuestro-v2",
+ "validacion": {
+  "duros": 0,
+  "hallazgos": [],
+  "suaves": 0,
+  "valido": true
+ }
+}
+[exit 0]
+
+$ python3 -c "comparar el PCM de v1 (mudo) contra v2 (campana), amplitud con signo"
+boot-nuestro-v1.avi      audio=355200 B  sha_pcm=084d3a5fccde  muestras_no_nulas=0  pico=0
+boot-nuestro-v2.avi      audio=355200 B  sha_pcm=943f14fab03b  muestras_no_nulas=169997  pico=12000
+[exit 0]
+
+$ cat /home/danny/megamochi-backup/deploy_2026-11-06_ours/journal-boot-audio.json   # el journal es el registro de la transicion
+{
+ "accion": "mochi-deploy-v1",
+ "sello": "20261106T124536Z",
+ "volumen": "/media/danny/MEGAMOCHI",
+ "token": "3ea303f02ce1",
+ "entradas": [
+  {
+   "destino": "startup.avi",
+   "backup": "/home/danny/megamochi-backup/deploy_2026-11-06_ours/startup.avi",
+   "sha_previo": "86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7",
+   "sha_nuevo": "e7b85961ba95a3e9c722add92d6cdc4dc079d8317d96da8b1b4f02527c013582"
+  }
+ ]
+}
+$ sha256sum /home/danny/megamochi-backup/deploy_2026-11-06_ours/startup.avi /media/danny/MEGAMOCHI/startup.avi
+86f1558614b3e87d9ec9667d930aafb94cf315d24a3a156318cd3fdf9b402de7  /home/danny/megamochi-backup/deploy_2026-11-06_ours/startup.avi
+e7b85961ba95a3e9c722add92d6cdc4dc079d8317d96da8b1b4f02527c013582  /media/danny/MEGAMOCHI/startup.avi
+
+$ ./mochic validate /media/danny/MEGAMOCHI/startup.avi   # el archivo ya instalado, leido del volumen
+{
+ "archivo": "/media/danny/MEGAMOCHI/startup.avi",
+ "duros": 0,
+ "suaves": 0
+}
+[exit 0]
